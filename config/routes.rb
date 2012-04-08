@@ -1,5 +1,7 @@
 ScientificProto::Application.routes.draw do
 
+  resources :discussions
+
   resources :problems do
     resources :answers
   end
