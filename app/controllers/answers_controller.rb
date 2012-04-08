@@ -24,7 +24,7 @@ class AnswersController < ApplicationController
   # GET /answers/new
   # GET /answers/new.json
   def new
-    @answer = Answer.new
+    @answer = Answer.new(problem_id: params[:problem_id])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -44,8 +44,8 @@ class AnswersController < ApplicationController
 
     respond_to do |format|
       if @answer.save
-        format.html { redirect_to @answer, notice: 'Answer was successfully created.' }
-        format.json { render json: @answer, status: :created, location: @answer }
+        format.html { redirect_to [@answer.problem, @answer], notice: 'Answer was successfully created.' }
+        format.json { render json: [@answer.problem, @answer], status: :created, location: @answer }
       else
         format.html { render action: "new" }
         format.json { render json: @answer.errors, status: :unprocessable_entity }
@@ -60,7 +60,7 @@ class AnswersController < ApplicationController
 
     respond_to do |format|
       if @answer.update_attributes(params[:answer])
-        format.html { redirect_to @answer, notice: 'Answer was successfully updated.' }
+        format.html { redirect_to [@answer.problem, @answer], notice: 'Answer was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -76,7 +76,7 @@ class AnswersController < ApplicationController
     @answer.destroy
 
     respond_to do |format|
-      format.html { redirect_to answers_url }
+      format.html { redirect_to problem_answers_url(params[:problem_id]) }
       format.json { head :no_content }
     end
   end
