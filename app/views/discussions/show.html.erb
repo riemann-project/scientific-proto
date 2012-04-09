@@ -21,5 +21,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_discussion_path(@discussion) %> |
-<%= link_to 'Back', discussions_path %>
+<%= link_to 'Edit', edit_problem_answer_discussion_path(@discussion.problem, @discussion.super_answer, @discussion) %> |
+<%= link_to 'Back', problem_answer_discussions_path(@discussion.problem, @discussion.super_answer) %>

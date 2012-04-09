@@ -17,13 +17,13 @@
     <td><%= discussion.content %></td>
     <td><%= discussion.discussable_id %></td>
     <td><%= discussion.discussable_type %></td>
-    <td><%= link_to 'Show', discussion %></td>
-    <td><%= link_to 'Edit', edit_discussion_path(discussion) %></td>
-    <td><%= link_to 'Destroy', discussion, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Show', [discussion.problem, discussion.super_answer, discussion] %></td>
+    <td><%= link_to 'Edit', edit_problem_answer_discussion_path(discussion.problem, discussion.super_answer, discussion) %></td>
+    <td><%= link_to 'Destroy', [discussion.problem, discussion.super_answer, discussion], confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Discussion', new_discussion_path %>
+<%= link_to 'New Discussion', new_problem_answer_discussion_path %>

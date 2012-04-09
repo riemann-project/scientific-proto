@@ -2,7 +2,7 @@ class DiscussionsController < ApplicationController
   # GET /discussions
   # GET /discussions.json
   def index
-    @discussions = Discussion.all
+    @discussions = Discussion.find_all_by_discussable_id_and_discussable_type(params[:answer_id], "Answer")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,7 +24,7 @@ class DiscussionsController < ApplicationController
   # GET /discussions/new
   # GET /discussions/new.json
   def new
-    @discussion = Discussion.new
+    @discussion = Answer.find(params[:answer_id]).discussions.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,12 +40,12 @@ class DiscussionsController < ApplicationController
   # POST /discussions
   # POST /discussions.json
   def create
-    @discussion = Discussion.new(params[:discussion])
+    @discussion = Answer.find(params[:answer_id]).discussions.build(params[:discussion])
 
     respond_to do |format|
       if @discussion.save
-        format.html { redirect_to @discussion, notice: 'Discussion was successfully created.' }
-        format.json { render json: @discussion, status: :created, location: @discussion }
+        format.html { redirect_to [@discussion.problem, @discussion.super_answer, @discussion], notice: 'Discussion was successfully created.' }
+        format.json { render json: [@discussion.problem, @discussion.super_answer, @discussion], status: :created, location: @discussion }
       else
         format.html { render action: "new" }
         format.json { render json: @discussion.errors, status: :unprocessable_entity }
@@ -60,7 +60,7 @@ class DiscussionsController < ApplicationController
 
     respond_to do |format|
       if @discussion.update_attributes(params[:discussion])
-        format.html { redirect_to @discussion, notice: 'Discussion was successfully updated.' }
+        format.html { redirect_to [@discussion.problem, @discussion.super_answer, @discussion], notice: 'Discussion was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -76,7 +76,7 @@ class DiscussionsController < ApplicationController
     @discussion.destroy
 
     respond_to do |format|
-      format.html { redirect_to discussions_url }
+      format.html { redirect_to problem_answer_discussions_url(@discussion.problem, @discussion.super_answer) }
       format.json { head :no_content }
     end
   end

@@ -10,6 +10,13 @@
   <%= @problem.user_id %>
 </p>
 
+<p>
+  <b>Answers:</b>
+  <% @problem.answers.each do |answer| %>
+    <%= link_to "answer", [@problem, answer] %>
+  <% end %>
+</p>
 
+<%= link_to "Create new Answer", new_problem_answer_path(@problem) %> |
 <%= link_to 'Edit', edit_problem_path(@problem) %> |
 <%= link_to 'Back', problems_path %>

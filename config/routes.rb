@@ -1,9 +1,9 @@
 ScientificProto::Application.routes.draw do
 
-  resources :discussions
-
   resources :problems do
-    resources :answers
+    resources :answers do
+      resources :discussions
+    end
   end
 
   # The priority is based upon order of creation:

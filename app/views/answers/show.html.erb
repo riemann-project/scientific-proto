@@ -15,6 +15,13 @@
   <%= @answer.content %>
 </p>
 
+<p>
+  <b>Discussions:</b>
+  <% @answer.discussions.each do |discussion| %>
+    <%= link_to "discussion", [@answer.problem, @answer, discussion] %>
+  <% end %>
+</p>
 
+<%= link_to "Create new discussion", new_problem_answer_discussion_path(@answer.problem, @answer) %> |
 <%= link_to 'Edit', edit_problem_answer_path(@answer.problem, @answer) %> |
 <%= link_to 'Back', problem_answers_path %>
