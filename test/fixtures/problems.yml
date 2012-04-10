@@ -1,9 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  content: Question one
+  id: 1
+  title: 電磁気I (岩波) p.50 例題1
+  content: 電磁気学の原理となる4法則をまとめてなんというか
   user_id: 1
 
 two:
+  id: 2
+  title: 考える力学 (兵藤 著) p.101 問題3
   content: Question two
   user_id: 1

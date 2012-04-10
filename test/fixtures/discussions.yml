@@ -2,12 +2,12 @@
 
 one:
   user_id: 1
-  content: MyText
+  content: 4つのマックスウェル方程式は具体的にはどのような表式になりますか。
   discussable_id: 1
-  discussable_type: MyString
+  discussable_type: Answer
 
 two:
   user_id: 1
-  content: MyText
+  content: どの教科書の何ページに記述がありますか？
   discussable_id: 1
-  discussable_type: MyString
+  discussable_type: Answer
