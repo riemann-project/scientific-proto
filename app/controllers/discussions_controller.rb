@@ -67,8 +67,8 @@ class DiscussionsController < ApplicationController
 
     respond_to do |format|
       if @discussion.save
-        format.html { redirect_to [@discussion.problem, @discussion.super_answer], notice: 'Discussion was successfully created.' }
-        format.json { render json: [@discussion.problem, @discussion.super_answer], status: :created, location: @discussion }
+        format.html { redirect_to [@discussion.problem, @discussion.super_answer, @discussion.discussable], notice: 'Discussion was successfully created.' }
+        format.json { render json: [@discussion.problem, @discussion.super_answerr, @discussion.discussble], status: :created, location: @discussion }
       else
         format.html { render action: "new" }
         format.json { render json: @discussion.errors, status: :unprocessable_entity }
