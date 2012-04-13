@@ -1,5 +1,7 @@
 ScientificProto::Application.routes.draw do
 
+  resources :references
+
   resources :problems do
     resources :answers, :except => [:index] do
       resources :discussions, :except => [:index] do
