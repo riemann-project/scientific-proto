@@ -1,10 +1,15 @@
 ScientificProto::Application.routes.draw do
 
   resources :problems do
-    resources :answers do
-      resources :discussions
+    resources :answers, :except => [:index] do
+      resources :discussions, :except => [:index] do
+        get "reply", :on => :member
+        post "reply", :on => :member, :action => "create_reply"
+      end
     end
   end
+  
+  root :to => "problems#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
