@@ -31,6 +31,15 @@ class DiscussionsController < ApplicationController
       format.json { render json: @discussion }
     end
   end
+  
+  def reply
+    @discussion = Discussion.find(params[:id]).discussions.build
+
+    respond_to do |format|
+      format.html { render action: "new" }
+      format.json { render json: @discussion }
+    end
+  end
 
   # GET /discussions/1/edit
   def edit
@@ -44,8 +53,22 @@ class DiscussionsController < ApplicationController
 
     respond_to do |format|
       if @discussion.save
-        format.html { redirect_to [@discussion.problem, @discussion.super_answer, @discussion], notice: 'Discussion was successfully created.' }
-        format.json { render json: [@discussion.problem, @discussion.super_answer, @discussion], status: :created, location: @discussion }
+        format.html { redirect_to [@discussion.problem, @discussion.super_answer], notice: 'Discussion was successfully created.' }
+        format.json { render json: [@discussion.problem, @discussion.super_answer], status: :created, location: @discussion }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @discussion.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  
+  def create_reply
+    @discussion = Discussion.find(params[:id]).discussions.build(params[:discussion])
+
+    respond_to do |format|
+      if @discussion.save
+        format.html { redirect_to [@discussion.problem, @discussion.super_answer], notice: 'Discussion was successfully created.' }
+        format.json { render json: [@discussion.problem, @discussion.super_answer], status: :created, location: @discussion }
       else
         format.html { render action: "new" }
         format.json { render json: @discussion.errors, status: :unprocessable_entity }

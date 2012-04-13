@@ -1,26 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Problem:</b>
-  <%= @answer.problem_id %>
-</p>
+<h2>
+  <%= link_to @answer.problem.title, @answer.problem %>
+   > <%= link_to @answer.content[0..20], [@answer.problem, @answer] %>
+</h2>
 
-<p>
-  <b>User:</b>
-  <%= @answer.user_id %>
-</p>
-
-<p>
-  <b>Content:</b>
-  <%= @answer.content %>
-</p>
-
-<p>
-  <b>Discussions:</b>
-  <% @answer.discussions.each do |discussion| %>
-    <%= link_to "discussion", [@answer.problem, @answer, discussion] %>
-  <% end %>
-</p>
+<h3>Discussions</h3>
+<%= div_for(@answer.discussions) do |d| %>
+  <%= d.content %><br />
+  <%= link_to "Parmalink", [@answer.problem, @answer, d] %>
+<% end %>
 
 <%= link_to "Create new discussion", new_problem_answer_discussion_path(@answer.problem, @answer) %> |
 <%= link_to 'Edit', edit_problem_answer_path(@answer.problem, @answer) %> |

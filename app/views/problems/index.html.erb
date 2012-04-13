@@ -1,24 +1,13 @@
 <h1>Listing problems</h1>
 
-<table>
-  <tr>
-    <th>Content</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @problems.each do |problem| %>
-  <tr>
-    <td><%= problem.content %></td>
-    <td><%= problem.user_id %></td>
-    <td><%= link_to 'Show', problem %></td>
-    <td><%= link_to 'Edit', edit_problem_path(problem) %></td>
-    <td><%= link_to 'Destroy', problem, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+<%= div_for(@problems) do |problem| %>
+  <%= link_to problem.title, problem %>(<%= problem.answers.count %> answers posted.)<br>
+  <%= div_for(problem.answers) do |answer| %>
+    <ul>
+      <li><%= link_to answer.content[0..20], [problem, answer] %>
+    </ul>
+  <% end %>
 <% end %>
-</table>
 
 <br />
 

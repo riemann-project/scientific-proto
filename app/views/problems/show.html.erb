@@ -1,21 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Content:</b>
-  <%= @problem.content %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @problem.user_id %>
-</p>
-
-<p>
-  <b>Answers:</b>
-  <% @problem.answers.each do |answer| %>
-    <%= link_to "answer", [@problem, answer] %>
-  <% end %>
-</p>
+<h2><%= @problem.title %></h2>
+<%= div_for @problem.answers do |answer| %>
+  <%= link_to answer.content[0..20], [@problem, answer] %>
+<% end %>
 
 <%= link_to "Create new Answer", new_problem_answer_path(@problem) %> |
 <%= link_to 'Edit', edit_problem_path(@problem) %> |

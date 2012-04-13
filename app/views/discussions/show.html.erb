@@ -1,25 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>User:</b>
-  <%= @discussion.user_id %>
-</p>
+<h2>
+  <%= link_to @discussion.super_answer.problem.title, @discussion.super_answer.problem %> > 
+  <%= link_to @discussion.super_answer.content[0..10], [@discussion.super_answer.problem, @discussion.super_answer] %> > 
+  <%= link_to @discussion.content[0..20], [@discussion.super_answer.problem, @discussion.super_answer, @discussion] %>
+</h2>
 
-<p>
-  <b>Content:</b>
-  <%= @discussion.content %>
-</p>
+<%= div_for(@discussion.discussions) do |d| %>
+  <%= d.content %><br />
+  <%= link_to "Show", reply_problem_answer_discussion_path(d.problem, d.super_answer, d) %>
+<% end %>
 
-<p>
-  <b>Discussable:</b>
-  <%= @discussion.discussable_id %>
-</p>
-
-<p>
-  <b>Discussable type:</b>
-  <%= @discussion.discussable_type %>
-</p>
-
-
+<%= link_to "Reply", reply_problem_answer_discussion_path(@discussion.problem, @discussion.super_answer, @discussion) %> |
 <%= link_to 'Edit', edit_problem_answer_discussion_path(@discussion.problem, @discussion.super_answer, @discussion) %> |
 <%= link_to 'Back', problem_answer_discussions_path(@discussion.problem, @discussion.super_answer) %>
