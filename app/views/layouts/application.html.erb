@@ -7,8 +7,29 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <ul class="nav">
+        <%= link_to "Pipet.jp", root_path, class: "brand" %>
+        <li><%= link_to "Problems", problems_path %>
+      </ul>
+    </div>
+  </div>
+</div>
 
-<%= yield %>
+<div class="container">
+  <%= yield %>
+</div>
 
+<div class="navbar navbar-fixed-bottom">
+  <div class="navbar-inner">
+    <div class="container">
+      <ul class="nav">
+        <li><%= link_to "This is footer.", root_path %>
+      </ul>
+    </div>
+  </div>
+</div>
 </body>
 </html>
