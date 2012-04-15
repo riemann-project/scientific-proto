@@ -1,7 +1,5 @@
 ScientificProto::Application.routes.draw do
 
-  resources :references
-
   resources :problems do
     resources :answers, :except => [:index] do
       resources :discussions, :except => [:index] do
@@ -10,6 +8,8 @@ ScientificProto::Application.routes.draw do
       end
     end
   end
+
+  resources :references, :only => [:create, :edit, :delete]
   
   root :to => "problems#index"
 
