@@ -1,5 +1,6 @@
 class Discussion < ActiveRecord::Base
   attr_accessible :title, :content
+  belongs_to :user
   belongs_to :discussable, :polymorphic => true
   has_many :discussions, :as => :discussable
   has_many :references, :as => :referable
