@@ -1,5 +1,7 @@
 ScientificProto::Application.routes.draw do
 
+  devise_for :users
+
   resources :problems do
     resources :answers, :except => [:index] do
       resources :discussions, :except => [:index] do
