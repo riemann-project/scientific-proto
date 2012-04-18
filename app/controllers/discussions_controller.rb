@@ -49,7 +49,8 @@ class DiscussionsController < ApplicationController
   # POST /discussions
   # POST /discussions.json
   def create
-    @discussion = Answer.find(params[:answer_id]).discussions.build(params[:discussion])
+    @discussion = Answer.find(params[:answer_id]).discussions
+    .build(params[:discussion].merge(user_id: current_user.id))
 
     respond_to do |format|
       if @discussion.save
@@ -63,7 +64,8 @@ class DiscussionsController < ApplicationController
   end
   
   def create_reply
-    @discussion = Discussion.find(params[:id]).discussions.build(params[:discussion])
+    @discussion = Discussion.find(params[:id]).discussions
+    .build(params[:discussion].merge(user_id: current_user.id))
 
     respond_to do |format|
       if @discussion.save

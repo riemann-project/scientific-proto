@@ -40,12 +40,13 @@ class AnswersController < ApplicationController
   # POST /answers
   # POST /answers.json
   def create
-    @answer = Answer.new(params[:answer])
+    @answer = Problem.find(params[:problem_id])
+    .answers.build(params[:answer], :user_id => current_user.id)
 
     respond_to do |format|
       if @answer.save
-        format.html { redirect_to [@answer.problem, @answer], notice: 'Answer was successfully created.' }
-        format.json { render json: [@answer.problem, @answer], status: :created, location: @answer }
+        format.html { redirect_to @answer.problem, notice: 'Answer was successfully created.' }
+        format.json { render json: @answer, status: :created, location: @answer }
       else
         format.html { render action: "new" }
         format.json { render json: @answer.errors, status: :unprocessable_entity }
@@ -60,7 +61,7 @@ class AnswersController < ApplicationController
 
     respond_to do |format|
       if @answer.update_attributes(params[:answer])
-        format.html { redirect_to [@answer.problem, @answer], notice: 'Answer was successfully updated.' }
+        format.html { redirect_to @answer.problem, notice: 'Answer was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
