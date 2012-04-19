@@ -1,3 +1,3 @@
 class Watch < ActiveRecord::Base
-  attr_accessible :problem_id, :user_id
+  belongs_to :user
 end

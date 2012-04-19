@@ -1,8 +1,10 @@
 ScientificProto::Application.routes.draw do
 
-  get "watches/index"
-
   devise_for :users
+  
+  resources :user do
+    resources :watches
+  end
 
   resources :problems do
     resources :answers, :except => [:index] do

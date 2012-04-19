@@ -12,4 +12,6 @@ class User < ActiveRecord::Base
   has_many :answers
   has_many :discussions
   has_many :references
+  
+  has_many :watches
 end
