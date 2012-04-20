@@ -1,4 +1,5 @@
 class Watch < ActiveRecord::Base
-  belongs_to :user
-  has_one :problem
+  attr_accessible :user_id, :problem_id
+  belongs_to :watching_user, class_name: "User", foreign_key: :user_id
+  belongs_to :watched_problem, class_name: "Problem", foreign_key: :problem_id
 end

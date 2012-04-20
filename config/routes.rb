@@ -2,7 +2,7 @@ ScientificProto::Application.routes.draw do
 
   devise_for :users
   
-  resources :user do
+  resources :user, :only => [:index, :show] do
     resources :watches, :only => [:index]
   end
 
@@ -13,7 +13,7 @@ ScientificProto::Application.routes.draw do
         post "reply", :on => :member, :action => "create_reply"
       end
     end
-    resources :watches, :only => [:create, :delete]
+    resources :watches, :only => [:create, :destroy]
   end
 
   resources :references, :only => [:create, :edit, :delete]
