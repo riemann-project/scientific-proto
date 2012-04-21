@@ -1,2 +1,9 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
+
+<%= @user.email %>
+
+<h2>watched problems</h2>
+<% @user.watched_problems.each do |p| %>
+  <%= p.title %><br>
+<% end %>

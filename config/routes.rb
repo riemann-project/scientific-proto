@@ -1,12 +1,8 @@
 ScientificProto::Application.routes.draw do
 
-  get "users/index"
-
-  get "users/show"
-
   devise_for :users
   
-  resources :user, :only => [:index, :show] do
+  resources :users, :only => [:index, :show] do
     resources :watches, :only => [:index]
   end
 
