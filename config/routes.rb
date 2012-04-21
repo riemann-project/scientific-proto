@@ -1,11 +1,10 @@
 ScientificProto::Application.routes.draw do
 
-  get "follows/index"
-
   devise_for :users
   
   resources :users, :only => [:index, :show] do
     resources :watches, :only => [:index]
+    resources :follows, :only => [:index, :create, :destroy]
   end
 
   resources :problems do

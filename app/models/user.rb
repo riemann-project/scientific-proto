@@ -15,4 +15,9 @@ class User < ActiveRecord::Base
   
   has_many :watches
   has_many :watched_problems, :through => :watches
+  
+  has_many :follows
+  has_many :followings, class_name: "User", through: :follows
+  has_many :followeds, class_name: "Follow", foreign_key: :followed_id
+  has_many :followers, class_name: "User", through: :followeds
 end
