@@ -1,5 +1,7 @@
 ScientificProto::Application.routes.draw do
 
+  get "follows/index"
+
   devise_for :users
   
   resources :users, :only => [:index, :show] do
