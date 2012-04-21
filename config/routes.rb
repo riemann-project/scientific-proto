@@ -1,5 +1,9 @@
 ScientificProto::Application.routes.draw do
 
+  get "users/index"
+
+  get "users/show"
+
   devise_for :users
   
   resources :user, :only => [:index, :show] do
@@ -16,7 +20,7 @@ ScientificProto::Application.routes.draw do
     resources :watches, :only => [:create, :destroy]
   end
 
-  resources :references, :only => [:create, :edit, :delete]
+  resources :references, :only => [:create, :edit, :destroy]
   
   root :to => "problems#index"
 
