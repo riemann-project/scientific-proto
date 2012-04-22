@@ -7,6 +7,7 @@ gem 'rails', '3.2.3'
 
 gem 'sqlite3'
 gem 'devise', '~> 2.0.4'
+gem 'factory_girl_rails', '~> 3.1.0'
 
 
 # Gems used only for assets and not required
@@ -23,10 +24,6 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
-group :development do
-  gem 'factory_girl', '~> 3.1.1'
-end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

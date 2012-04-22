@@ -1,13 +1,1 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  user_id: 1
-  content: 4つのマックスウェル方程式は具体的にはどのような表式になりますか。
-  discussable_id: 1
-  discussable_type: Answer
-
-two:
-  user_id: 1
-  content: どの教科書の何ページに記述がありますか？
-  discussable_id: 1
-  discussable_type: Answer
