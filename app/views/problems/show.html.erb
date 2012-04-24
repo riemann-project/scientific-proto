@@ -2,18 +2,7 @@
 
 <h2><%= @problem.title %></h2>
 <br>
-<%= 
-  if user_signed_in?
-    if Watch.exists?(problem_id: @problem.id, user_id: current_user.id)
-      @w = Watch.find_by_problem_id_and_user_id(@problem.id, current_user.id)
-      link_to "Unwatch", problem_watch_path(@problem, @w), method: :delete
-    else
-      link_to "Watch", problem_watches_path(@problem), method: :post
-    end
-  else
-    "watch button"
-  end
-%>
+<%= link_to_watch @problem %><br>
 <%= div_for @problem.answers do |answer| %>
   <%= link_to answer.content[0..20], [@problem, answer] %>
 <% end %>
