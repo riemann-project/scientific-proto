@@ -1,6 +1,16 @@
 # coding: utf-8
 
 FactoryGirl.define do
+  factory :user1, class: User do
+    email "alice@alice.com"
+    password "alicealice"
+  end
+  
+  factory :user2, class: User do
+    email "bob@bob.com"
+    password "bobbob"
+  end
+  
   factory :problem, class: Problem do
     title "電磁気II 期末テスト 大問1"
     content "ガウスの法則を定性的に説明せよ"
