@@ -6,5 +6,5 @@ class Problem < ActiveRecord::Base
   has_many :watching_users, through: :watches
   
   has_many :answers
-  has_many :references, as: :referable
+  has_many :references
 end

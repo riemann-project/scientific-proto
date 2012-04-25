@@ -13,11 +13,10 @@ ScientificProto::Application.routes.draw do
         get "reply", :on => :member
         post "reply", :on => :member, :action => "create_reply"
       end
+      resources :references, :only => [:create, :edit, :destroy]
     end
     resources :watches, :only => [:create, :destroy]
   end
-
-  resources :references, :only => [:create, :edit, :destroy]
   
   root :to => "problems#index"
 
