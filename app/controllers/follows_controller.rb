@@ -3,7 +3,7 @@ class FollowsController < ApplicationController
   end
   
   def create
-    @follow = current_user.followings.build(followed_id: params[:id])
+    @follow = current_user.followings.build(followed_id: params[:follow])
     
     respond_to do |format|
       if @follow.save
@@ -16,7 +16,7 @@ class FollowsController < ApplicationController
     end
   end
   
-  def delete
+  def destroy
     @follow = Follow.find(params[:id])
     @follo.destroy
     
