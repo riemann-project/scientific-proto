@@ -20,4 +20,7 @@ class User < ActiveRecord::Base
   has_many :followings, class_name: "User", through: :follows
   has_many :followeds, class_name: "Follow", foreign_key: :followed_id
   has_many :followers, class_name: "User", through: :followeds
+  
+  has_many :interests
+  has_many :interesting_discussions, class_name: "Discussion", through: :interests
 end

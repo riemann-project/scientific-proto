@@ -8,6 +8,7 @@
 <h3>Discussions</h3>
 <%= div_for(@answer.discussions) do |d| %>
   <%= d.content %><br />
+  <%= link_to_interest d %>
   <%= link_to "Parmalink", [@answer.problem, @answer, d] %>
 <% end %>
 

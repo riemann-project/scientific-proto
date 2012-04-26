@@ -1,11 +1,5 @@
 ScientificProto::Application.routes.draw do
 
-  get "interests/index"
-
-  get "interests/create"
-
-  get "interests/destroy"
-
   devise_for :users
   
   resources :users, :only => [:index, :show] do
@@ -18,6 +12,7 @@ ScientificProto::Application.routes.draw do
       resources :discussions, :except => [:index] do
         get "reply", :on => :member
         post "reply", :on => :member, :action => "create_reply"
+        resources :interests, :only => [:create, :destroy]
       end
     end  
       resources :references, :only => [:new, :create, :edit, :destroy]
