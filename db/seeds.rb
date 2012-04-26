@@ -6,6 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-FactoryGirl.create(:user1)
-FactoryGirl.create(:user2)
+FactoryGirl.create(:user)
+FactoryGirl.create(:user_bob)
 FactoryGirl.create(:problem)
