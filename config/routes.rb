@@ -1,5 +1,11 @@
 ScientificProto::Application.routes.draw do
 
+  get "interests/index"
+
+  get "interests/create"
+
+  get "interests/destroy"
+
   devise_for :users
   
   resources :users, :only => [:index, :show] do
