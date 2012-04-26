@@ -24,7 +24,7 @@ class ReferencesController < ApplicationController
   # GET /references/new
   # GET /references/new.json
   def new
-    @reference = Reference.new
+    @reference = Problem.find(params[:problem_id]).references.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,10 +41,11 @@ class ReferencesController < ApplicationController
   # POST /references.json
   def create
     @reference = current_user.references.build(params[:reference])
+    @reference.problem_id = params[:problem_id]
 
     respond_to do |format|
       if @reference.save
-        format.html { redirect_to @reference, notice: 'Reference was successfully created.' }
+        format.html { redirect_to @reference.problem, notice: 'Reference was successfully created.' }
         format.json { render json: @reference, status: :created, location: @reference }
       else
         format.html { render action: "new" }
