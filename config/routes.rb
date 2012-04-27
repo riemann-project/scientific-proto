@@ -1,5 +1,9 @@
 ScientificProto::Application.routes.draw do
 
+  get "usefuls/create"
+
+  get "usefuls/destroy"
+
   devise_for :users
   
   resources :users, :only => [:index, :show] do
