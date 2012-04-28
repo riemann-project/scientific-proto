@@ -7,6 +7,7 @@ FactoryGirl.define do
     password "alicealice"
     interests {[ Factory(:alices_interest)] }
     usefuls {[ Factory(:alices_useful)] }
+    badges {[ Factory(:silver_badge)] }
   end
   
   factory :user_bob, class: User do
@@ -44,5 +45,13 @@ FactoryGirl.define do
   
   factory :alices_useful, class: Useful do
     answer_id 1
+  end
+  
+  factory :gold_badge, class: Badge do
+    name "Gold Badge"
+  end
+  
+  factory :silver_badge, class: Badge do
+    name "Silver Badge"
   end
 end

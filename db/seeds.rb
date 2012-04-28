@@ -9,3 +9,7 @@
 FactoryGirl.create(:user)
 FactoryGirl.create(:user_bob)
 FactoryGirl.create(:problem)
+
+# Generate Badges
+FactoryGirl.create(:gold_badge)
+FactoryGirl.create(:silver_badge)
