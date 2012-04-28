@@ -23,4 +23,7 @@ class User < ActiveRecord::Base
   
   has_many :interests
   has_many :interesting_discussions, class_name: "Discussion", through: :interests
+  
+  has_many :usefuls
+  has_many :useful_answers, class_name: "Answer", through: :usefuls
 end

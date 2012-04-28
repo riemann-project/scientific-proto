@@ -6,6 +6,7 @@ FactoryGirl.define do
     email "alice@alice.com"
     password "alicealice"
     interests {[ Factory(:alices_interest)] }
+    usefuls {[ Factory(:alices_useful)] }
   end
   
   factory :user_bob, class: User do
@@ -21,6 +22,7 @@ FactoryGirl.define do
   end
   
   factory :answer, class: Answer do
+    id 1
     content "電荷から電場が湧き出ていることをガウスの定理を用いて表現されている"
     discussions { [Factory(:super_discussion)] }
   end
@@ -38,5 +40,9 @@ FactoryGirl.define do
   
   factory :alices_interest, class: Interest do
     discussion_id 1
+  end
+  
+  factory :alices_useful, class: Useful do
+    answer_id 1
   end
 end

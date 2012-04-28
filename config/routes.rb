@@ -1,9 +1,5 @@
 ScientificProto::Application.routes.draw do
 
-  get "usefuls/create"
-
-  get "usefuls/destroy"
-
   devise_for :users
   
   resources :users, :only => [:index, :show] do
@@ -18,6 +14,7 @@ ScientificProto::Application.routes.draw do
         post "reply", :on => :member, :action => "create_reply"
         resources :interests, :only => [:create, :destroy]
       end
+      resources :usefuls, :only => [:create, :destroy]
     end  
       resources :references, :only => [:new, :create, :edit, :destroy]
     resources :watches, :only => [:create, :destroy]

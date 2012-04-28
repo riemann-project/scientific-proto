@@ -4,6 +4,7 @@
   <%= link_to @answer.problem.title, @answer.problem %>
    > <%= link_to @answer.content[0..20], [@answer.problem, @answer] %>
 </h2>
+<%= link_to_useful @answer %>
 
 <h3>Discussions</h3>
 <%= div_for(@answer.discussions) do |d| %>
