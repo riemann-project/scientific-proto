@@ -68,6 +68,8 @@ ActiveRecord::Schema.define(:version => 20120427023413) do
   end
 
   create_table "users", :force => true do |t|
+    t.float    "deviation"
+    t.integer  "account"
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
