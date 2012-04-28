@@ -7,3 +7,18 @@
 <% @user.watched_problems.each do |p| %>
   <%= p.title %><br>
 <% end %>
+
+<h2>Badges</h2>
+<% @user.badges.each do |b| %>
+  <%= b.name %>
+<% end %>
+
+<h2>following users</h2>
+<% @user.followings.each do |u| %>
+  <%= link_to u.email, u %>
+<% end %>
+
+<h2>followed users</h2>
+<% @user.followers.each do |u| %>
+  <%= link_to u.email, u %>
+<% end %>

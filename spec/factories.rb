@@ -5,15 +5,21 @@ FactoryGirl.define do
     id 1
     email "alice@alice.com"
     password "alicealice"
-    interests {[ Factory(:alices_interest)] }
-    usefuls {[ Factory(:alices_useful)] }
-    badges {[ Factory(:silver_badge)] }
+    interests { [Factory(:alices_interest)] }
+    usefuls { [Factory(:alices_useful)] }
+    badges { [Factory(:silver_badge)] }
+    
+    # Alice follows Bob
+    follows { [Factory(:to_follow_bob)] }
   end
   
   factory :user_bob, class: User do
     id 2
     email "bob@bob.com"
     password "bobbob"
+    
+    # Bob follows Alice
+    follows { [Factory(:to_follow_alice)] }
   end
   
   factory :problem do
@@ -53,5 +59,13 @@ FactoryGirl.define do
   
   factory :silver_badge, class: Badge do
     name "Silver Badge"
+  end
+  
+  factory :to_follow_bob, class: Follow do
+    followed_id 2
+  end
+
+  factory :to_follow_alice, class: Follow do
+    followed_id 1
   end
 end
