@@ -26,4 +26,7 @@ class User < ActiveRecord::Base
   
   has_many :usefuls
   has_many :useful_answers, class_name: "Answer", through: :usefuls
+  
+  has_many :user_badges
+  has_many :badges, through: :user_badges
 end
