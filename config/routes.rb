@@ -1,5 +1,7 @@
 ScientificProto::Application.routes.draw do
 
+  resources :badges
+
   devise_for :users
   
   resources :users, :only => [:index, :show] do
