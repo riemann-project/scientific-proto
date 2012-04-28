@@ -1,6 +1,6 @@
 class UsefulsController < ApplicationController
   def create
-    @useful = current_user.usefuls.build(answer_id: params[:answer_id])
+    @useful = current_user.usefuls.build(reference_id: params[:reference_id])
 
     respond_to do |format|
       if @useful.save

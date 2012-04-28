@@ -3,7 +3,4 @@ class Answer < ActiveRecord::Base
   belongs_to :user
   belongs_to :problem
   has_many :discussions, as: :discussable
-  
-  has_many :usefuls
-  has_many :usefuled_user, class_name: "User", through: :usefuls
 end

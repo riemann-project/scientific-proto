@@ -50,7 +50,7 @@ FactoryGirl.define do
   end
   
   factory :alices_useful, class: Useful do
-    answer_id 1
+    reference_id 1
   end
   
   factory :gold_badge, class: Badge do

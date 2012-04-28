@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   has_many :interesting_discussions, class_name: "Discussion", through: :interests
   
   has_many :usefuls
-  has_many :useful_answers, class_name: "Answer", through: :usefuls
+  has_many :useful_references, class_name: "Reference", through: :usefuls
   
   has_many :user_badges
   has_many :badges, through: :user_badges

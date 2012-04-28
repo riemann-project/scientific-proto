@@ -16,9 +16,10 @@ ScientificProto::Application.routes.draw do
         post "reply", :on => :member, :action => "create_reply"
         resources :interests, :only => [:create, :destroy]
       end
-      resources :usefuls, :only => [:create, :destroy]
     end  
-      resources :references, :only => [:new, :create, :edit, :destroy]
+      resources :references, :only => [:new, :create, :edit, :destroy] do
+        resources :usefuls, :only => [:create, :destroy]
+      end
     resources :watches, :only => [:create, :destroy]
   end
   
