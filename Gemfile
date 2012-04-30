@@ -8,6 +8,8 @@ gem 'rails', '3.2.3'
 gem 'sqlite3'
 gem 'devise', '~> 2.0.4'
 gem 'factory_girl_rails', '~> 3.1.0'
+gem 'rmagick', '~> 2.13.1'
+gem 'carrierwave', '~> 0.6.2'
 
 
 # Gems used only for assets and not required
