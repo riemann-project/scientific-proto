@@ -1,9 +1,5 @@
 ScientificProto::Application.routes.draw do
 
-  get "problem_images/new"
-
-  get "problem_images/edit"
-
   resources :badges
 
   devise_for :users
@@ -25,6 +21,7 @@ ScientificProto::Application.routes.draw do
         resources :usefuls, :only => [:create, :destroy]
       end
     resources :watches, :only => [:create, :destroy]
+    resources :problem_images, :except => [:index, :show]
   end
   
   root :to => "problems#index"

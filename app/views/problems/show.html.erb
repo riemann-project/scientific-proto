@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <h2><%= @problem.title %></h2>
+<% @problem.problem_images.each do |i| %>
+  <%= image_tag i.image %><br>
+  <%= link_to "Edit Image", edit_problem_problem_image_path(@problem, i), class: "btn" %><br>
+<% end %>
+<%= link_to "Add Image", new_problem_problem_image_path(@problem), class: "btn" %><br>
 <%= link_to_watch @problem %><br>
 <%= link_to "add reference", new_problem_reference_path(@problem), class: "btn" %>
 <%= div_for @problem.answers do |answer| %>
