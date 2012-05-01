@@ -1,13 +1,13 @@
 <h1>ProblemImages#edit</h1>
 <p>Find me in app/views/problem_images/edit.html.erb</p>
 
-<%= image_tag @image.image %><br>
+<%= image_tag @image.image, id: "active_image" %><br>
 <%= link_to "delete", problem_problem_image_path(@image.problem, @image), method: :delete %>
 
 <%= form_tag("./", :method => "PUT") do %><br>
-  x<%= number_field_tag "x" %><br>
-  y<%= number_field_tag "y" %><br>
-  w<%= number_field_tag "w" %><br>
-  h<%= number_field_tag "h" %><br>
+  <%= hidden_field_tag "x" %>
+  <%= hidden_field_tag "y" %>
+  <%= hidden_field_tag "w" %>
+  <%= hidden_field_tag "h" %>
   <%= submit_tag 'echo' %>
 <% end -%>

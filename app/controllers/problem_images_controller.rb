@@ -10,7 +10,7 @@ class ProblemImagesController < ApplicationController
 
     respond_to do |format|
       if @image.save
-        format.html { redirect_to @image.problem, notice: 'Image was successfully created.' }
+        format.html { redirect_to edit_problem_problem_image_path(@image.problem, @image), notice: 'Image was successfully created.' }
         format.json { render json: @image, status: :created, location: @image }
       else
         format.html { render action: "new" }
