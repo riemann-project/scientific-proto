@@ -1,0 +1,2 @@
+module ProblemImagesHelper
+end

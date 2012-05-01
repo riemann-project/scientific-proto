@@ -1,5 +1,9 @@
 ScientificProto::Application.routes.draw do
 
+  get "problem_images/new"
+
+  get "problem_images/edit"
+
   resources :badges
 
   devise_for :users
