@@ -4,10 +4,12 @@
   <%= link_to problem.title, problem %>(<%= problem.answers.count %> answers posted.)<br>
   <%= div_for(problem.answers) do |answer| %>
     <ul>
-      <li><%= link_to answer.content[0..20], [problem, answer] %>
+      <li><%= link_to Sanitize.clean(answer.content), [problem, answer] %>
     </ul>
   <% end %>
 <% end %>
+
+<%= render :partial => @problems %>
 
 <br />
 

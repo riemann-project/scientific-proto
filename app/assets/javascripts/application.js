@@ -13,3 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+bkLib.onDomLoaded(function() {
+new nicEditor().panelInstance('problem_content');
+new nicEditor().panelInstance('answer_content');
+new nicEditor().panelInstance('discussion_content');
+});
