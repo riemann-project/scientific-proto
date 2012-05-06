@@ -8,6 +8,7 @@
 <%= link_to "Add Image", new_problem_problem_image_path(@problem), class: "btn" %><br>
 <%= link_to_watch @problem %><br>
 <%= link_to "add reference", new_problem_reference_path(@problem), class: "btn" %>
+<%= raw Sanitize.clean(@problem.content, Sanitize::Config::RELAXED) %>
 <%= div_for @problem.answers do |answer| %>
   <%= link_to answer.content[0..20], [@problem, answer] %>
 <% end %>

@@ -1,5 +1,9 @@
 ScientificProto::Application.routes.draw do
 
+  get "votes/create"
+
+  get "votes/update"
+
   resources :badges
 
   devise_for :users
