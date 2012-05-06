@@ -24,6 +24,8 @@ class User < ActiveRecord::Base
   has_many :interests
   has_many :interesting_discussions, class_name: "Discussion", through: :interests
   
+  has_many :votes
+  
   has_many :usefuls
   has_many :useful_references, class_name: "Reference", through: :usefuls
   

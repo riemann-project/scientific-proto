@@ -3,4 +3,5 @@ class Answer < ActiveRecord::Base
   belongs_to :user
   belongs_to :problem
   has_many :discussions, as: :discussable
+  has_many :votes
 end

@@ -10,9 +10,11 @@
 <%= link_to "add reference", new_problem_reference_path(@problem), class: "btn" %>
 <%= raw Sanitize.clean(@problem.content, Sanitize::Config::RELAXED) %>
 <%= div_for @problem.answers do |answer| %>
-  <%= link_to answer.content[0..20], [@problem, answer] %>
+  <%= link_to answer.content[0..20], [@problem, answer] %><br>
+  <%= link_to "good", problem_answer_good_path(@problem, answer), method: :post %>
+  <%= link_to "bad", problem_answer_bad_path(@problem, answer), method: :post %>
+  <hr/>
 <% end %>
-
 <%= link_to "Create new Answer", new_problem_answer_path(@problem) %> |
 <%= link_to 'Edit', edit_problem_path(@problem) %> |
 <%= link_to 'Back', problems_path %>
