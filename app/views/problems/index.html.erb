@@ -1,16 +1,5 @@
 <h1>Listing problems</h1>
 
-<%= div_for(@problems) do |problem| %>
-  <%= link_to problem.title, problem %>(<%= problem.answers.count %> answers posted.)<br>
-  <%= div_for(problem.answers) do |answer| %>
-    <ul>
-      <li><%= link_to Sanitize.clean(answer.content), [problem, answer] %>
-    </ul>
-  <% end %>
-<% end %>
-
-<%= render :partial => @problems %>
-
-<br />
+<%= render @problems %>
 
 <%= link_to 'New Problem', new_problem_path %>

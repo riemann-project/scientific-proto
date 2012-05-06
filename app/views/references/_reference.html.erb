@@ -1,2 +1,5 @@
-<%= @reference.id %><br>
-<%= link_to_useful @reference %>
+id:<%= reference.id %><br>
+content:<%= reference.content %><br>
+created_by: <%= reference.user.name %><br>
+<%= link_to_useful reference %>
+<hr>

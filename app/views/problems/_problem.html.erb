@@ -1,1 +1,15 @@
-<%= @problem.class %><br/>
+<div class="problem">
+	answers: <%= problem.answers.count %><br>
+	votes: <%= problem.answers.map{|a| a.votes.count}.inject(0){|x,y| x + y} %><br>
+	watch: <%= problem.watching_users.count %><br>
+	discussions: <%= problem.answers.map{|a| a.discussions.count}.inject(0){|x, y| x + y} %><br>
+	<br>
+	title: <%= problem.title %><br>
+	created_at: <%= problem.created_at %><br>
+	created_by: <%= problem.user.name %><br>
+	<br>
+	tags: <%= problem.tag_list %>
+	<br>
+	<%= link_to "show", problem %>
+</div>
+<hr>

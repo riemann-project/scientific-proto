@@ -6,11 +6,7 @@
 </h2>
 
 <h3>Discussions</h3>
-<%= div_for(@answer.discussions) do |d| %>
-  <%= d.content %><br />
-  <%= link_to_interest d %>
-  <%= link_to "Parmalink", [@answer.problem, @answer, d] %>
-<% end %>
+<%= render @answer.discussions %>
 
 <%= link_to "Create new discussion", new_problem_answer_discussion_path(@answer.problem, @answer) %> |
 <%= link_to 'Edit', edit_problem_answer_path(@answer.problem, @answer) %> |

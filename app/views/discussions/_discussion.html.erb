@@ -1,0 +1,6 @@
+<div class="discussion">
+	<%= discussion.content[0..20] %>
+	<%= discussion.content %><br />
+	<%= link_to_interest discussion %>
+	<%= link_to "Parmalink", [discussion.super_answer.problem, discussion.super_answer, discussion] %>
+</div>
