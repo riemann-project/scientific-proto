@@ -8,7 +8,8 @@
 
 FactoryGirl.create(:user)
 FactoryGirl.create(:user_bob)
-FactoryGirl.create(:problem)
+
+User.all.map{|u| u.confirm!}
 
 # Generate Badges
 FactoryGirl.create(:gold_badge)
