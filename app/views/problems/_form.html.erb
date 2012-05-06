@@ -1,4 +1,5 @@
 <%= form_for(@problem) do |f| %>
+  <script type="text/javascript">bkLib.onDomLoaded(function(){new nicEditor().panelInstance('problem_content');});</script>
   <% if @problem.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@problem.errors.count, "error") %> prohibited this problem from being saved:</h2>

@@ -1,4 +1,5 @@
 <% @block = Proc.new do |f| %>
+<script type="text/javascript">bkLib.onDomLoaded(function(){new nicEditor().panelInstance('discussion_content');});</script>
   <% if @discussion.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@discussion.errors.count, "error") %> prohibited this discussion from being saved:</h2>
