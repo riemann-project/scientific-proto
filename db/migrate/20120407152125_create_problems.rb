@@ -4,6 +4,7 @@ class CreateProblems < ActiveRecord::Migration
       t.text :content
       t.string :title
       t.integer :user_id
+      t.integer :view
 
       t.timestamps
     end
