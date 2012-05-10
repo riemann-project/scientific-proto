@@ -1,15 +1,6 @@
 <h1>problems#index</h1>
 
-<%= div_for(@problems) do |problem| %>
-  <%= link_to problem.title, problem %>(<%= problem.answers.count %> answers posted.)<br>
-  <%= div_for(problem.answers) do |answer| %>
-    <ul>
-      <li><%= link_to answer.content[0..20], [problem, answer] %>
-    </ul>
-  <% end %>
-<% end %>
-
-<br />
+<%= render @problems %>
 
 <%= link_to 'New Problem', new_problem_path %>
 <h1 id="test">test</h1>

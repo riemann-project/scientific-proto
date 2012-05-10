@@ -1,3 +1,4 @@
+<script type="text/javascript">bkLib.onDomLoaded(function(){new nicEditor().panelInstance('answer_content');});</script>
 <%= form_for([@answer.problem, @answer]) do |f| %>
   <% if @answer.errors.any? %>
     <div id="error_explanation">

@@ -9,4 +9,6 @@ class Problem < ActiveRecord::Base
   has_many :references
   
   has_many :problem_images
+  
+  acts_as_taggable
 end

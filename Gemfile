@@ -10,6 +10,8 @@ gem 'devise', '~> 2.0.4'
 gem 'factory_girl_rails', '~> 3.1.0'
 gem 'rmagick', '~> 2.13.1'
 gem 'carrierwave', '~> 0.6.2'
+gem 'sanitize'
+gem 'acts-as-taggable-on', '~> 2.2.2'
 
 
 

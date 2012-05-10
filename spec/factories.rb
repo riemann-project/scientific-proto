@@ -3,8 +3,10 @@
 FactoryGirl.define do
   factory :user do
     id 1
+    name "Alice"
     email "alice@alice.com"
     password "alicealice"
+    problems {[Factory(:problem)]}
     interests { [Factory(:alices_interest)] }
     usefuls { [Factory(:alices_useful)] }
     badges { [Factory(:silver_badge)] }
@@ -15,6 +17,7 @@ FactoryGirl.define do
   
   factory :user_bob, class: User do
     id 2
+    name "Bob"
     email "bob@bob.com"
     password "bobbob"
     
@@ -26,11 +29,14 @@ FactoryGirl.define do
     title "電磁気II 期末テスト 大問1"
     content "ガウスの法則を定性的に説明せよ"
     answers { [Factory(:answer)] }
+    references {[Factory(:reference)]}
+    tag_list {["電磁気", "ガウスの定理"]}
   end
   
   factory :answer, class: Answer do
     id 1
-    content "電荷から電場が湧き出ていることをガウスの定理を用いて表現されている"
+    content "電荷から電場が湧き出ていることをガウスの定理を用いて表現されている。
+    $$ \\sum_{n=1}^\\infty \\frac{1}{n^2} = \\frac{\\pi^2}{6} $$"
     discussions { [Factory(:super_discussion)] }
   end
   
@@ -67,5 +73,11 @@ FactoryGirl.define do
 
   factory :to_follow_alice, class: Follow do
     followed_id 1
+  end
+  
+  factory :reference do
+    user_id 1
+    content "this is the reference."
+    usefuls {[Factory(:alices_useful)]}
   end
 end

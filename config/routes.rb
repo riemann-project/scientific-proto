@@ -16,6 +16,9 @@ ScientificProto::Application.routes.draw do
         post "reply", :on => :member, :action => "create_reply"
         resources :interests, :only => [:create, :destroy]
       end
+      post "good", :controller => "votes", :action => "vote_good"
+      post "bad", :controller => "votes", :action => "vote_bad"
+      delete "delete", :controller => "votes", :action => "destroy"
     end  
       resources :references, :only => [:new, :create, :edit, :destroy] do
         resources :usefuls, :only => [:create, :destroy]
