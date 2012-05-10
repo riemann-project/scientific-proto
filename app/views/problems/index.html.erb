@@ -1,4 +1,4 @@
-<h1>Listing problems</h1>
+<h1>problems#index</h1>
 
 <%= div_for(@problems) do |problem| %>
   <%= link_to problem.title, problem %>(<%= problem.answers.count %> answers posted.)<br>
@@ -12,3 +12,4 @@
 <br />
 
 <%= link_to 'New Problem', new_problem_path %>
+<h1 id="test">test</h1>

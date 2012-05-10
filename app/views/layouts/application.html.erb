@@ -7,12 +7,12 @@
   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/1.1-latest/MathJax.js?config=default"></script>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="<%= controller.controller_name %>">
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
       <ul class="nav">
-        <%= link_to "Pipet.jp", root_path, class: "brand" %>
+        <%= link_to "Pipet", root_path, class: "brand" %>
         <li><%= link_to "Problems", problems_path %>
         <li><%= link_to "Users", users_path %>
         <li><%= link_to "My Profile", current_user %>
