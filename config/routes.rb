@@ -1,5 +1,7 @@
 ScientificProto::Application.routes.draw do
 
+  get "logs/index"
+
   resources :badges
 
   devise_for :users, :controllers => { :registrations => "users/registrations" } do
