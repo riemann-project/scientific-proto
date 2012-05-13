@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120506002400) do
+ActiveRecord::Schema.define(:version => 20120513232822) do
 
   create_table "answers", :force => true do |t|
     t.integer  "problem_id"
@@ -47,6 +47,14 @@ ActiveRecord::Schema.define(:version => 20120506002400) do
   create_table "interests", :force => true do |t|
     t.integer  "user_id"
     t.integer  "discussion_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "logs", :force => true do |t|
+    t.integer  "loggable_id"
+    t.string   "loggable_type"
+    t.integer  "user_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
