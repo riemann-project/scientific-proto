@@ -4,6 +4,7 @@ class CreateLogs < ActiveRecord::Migration
       t.integer :loggable_id
       t.string :loggable_type
       t.integer :user_id
+      t.string :action
 
       t.timestamps
     end
