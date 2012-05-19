@@ -1,6 +1,11 @@
 class ProblemImagesController < ApplicationController
   require "rmagick"
   include Magick
+  
+  def index
+    @images = current_user.problem_images
+  end
+  
   def new
     @image = Problem.find(params[:problem_id]).problem_images.build
   end

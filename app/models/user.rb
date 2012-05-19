@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   has_many :discussions
   has_many :references
   
+  has_many :problem_images
+
   has_many :watches
   has_many :watched_problems, :through => :watches
   

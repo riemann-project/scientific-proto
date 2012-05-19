@@ -11,6 +11,7 @@ ScientificProto::Application.routes.draw do
   resources :users, :only => [:index, :show] do
     resources :watches, :only => [:index]
     resources :follows, :only => [:index, :create, :destroy]
+    resources :problem_images
   end
 
   resources :problems do
