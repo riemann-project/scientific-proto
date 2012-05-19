@@ -42,6 +42,8 @@ class ReferencesController < ApplicationController
   def create
     @reference = current_user.references.build(params[:reference])
     @reference.problem_id = params[:problem_id]
+    
+    @reference.logs.build(user_id: current_user.id, action: "create")
 
     respond_to do |format|
       if @reference.save
@@ -58,6 +60,8 @@ class ReferencesController < ApplicationController
   # PUT /references/1.json
   def update
     @reference = Reference.find(params[:id])
+
+    @reference.logs.build(user_id: current_user.id, action: "update")
 
     respond_to do |format|
       if @reference.update_attributes(params[:reference])

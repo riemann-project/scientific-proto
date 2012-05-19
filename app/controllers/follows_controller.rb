@@ -5,6 +5,8 @@ class FollowsController < ApplicationController
   def create
     @follow = current_user.followings.build(followed_id: params[:follow])
     
+    @follow.logs.build(user_id: current_user.id, action: "create")
+    
     respond_to do |format|
       if @follow.save
         format.html { redirect_to :back }

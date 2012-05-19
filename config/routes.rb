@@ -1,7 +1,5 @@
 ScientificProto::Application.routes.draw do
 
-  get "logs/index"
-
   resources :badges
 
   devise_for :users, :controllers => { :registrations => "users/registrations" } do
@@ -33,7 +31,9 @@ ScientificProto::Application.routes.draw do
     resources :problem_images, :except => [:index, :show]
   end
   
-  root :to => "problems#index"
+  resources :logs, :only => [:index]
+  
+  root :to => "logs#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

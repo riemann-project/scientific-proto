@@ -42,6 +42,8 @@ class AnswersController < ApplicationController
   def create
     @answer = Problem.find(params[:problem_id])
     .answers.build(params[:answer], :user_id => current_user.id)
+    
+    @answer.logs.build(user_id: current_user.id, action: "create")
 
     respond_to do |format|
       if @answer.save
@@ -58,6 +60,7 @@ class AnswersController < ApplicationController
   # PUT /answers/1.json
   def update
     @answer = Answer.find(params[:id])
+    @answer.logs.build(user_id: current_user.id, action: "update")
 
     respond_to do |format|
       if @answer.update_attributes(params[:answer])

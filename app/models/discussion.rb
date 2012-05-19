@@ -1,10 +1,15 @@
 class Discussion < ActiveRecord::Base
   attr_accessible :title, :content, :user_id
+
   belongs_to :user
+
   belongs_to :discussable, :polymorphic => true
   has_many :discussions, :as => :discussable
+
   has_many :interests
   has_many :interested_users, through: :interests
+
+  has_many :logs, as: :loggable
   
   def super_answer
     discussable_type == "Answer" ? discussable : discussable.super_answer

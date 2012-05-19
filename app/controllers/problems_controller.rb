@@ -41,6 +41,7 @@ class ProblemsController < ApplicationController
   # POST /problems.json
   def create
     @problem = current_user.problems.build(params[:problem])
+    @problem.logs.build(user_id: current_user.id, action: "create")
 
     respond_to do |format|
       if @problem.save
@@ -57,6 +58,7 @@ class ProblemsController < ApplicationController
   # PUT /problems/1.json
   def update
     @problem = Problem.find(params[:id])
+    @problem.logs.build(user_id: current_user.id, action: "update")
 
     respond_to do |format|
       if @problem.update_attributes(params[:problem])

@@ -51,6 +51,8 @@ class DiscussionsController < ApplicationController
   def create
     @discussion = Answer.find(params[:answer_id]).discussions
     .build(params[:discussion].merge(user_id: current_user.id))
+    
+    @discussion.logs.build(user_id: current_user.id, action: "create")
 
     respond_to do |format|
       if @discussion.save
@@ -66,6 +68,8 @@ class DiscussionsController < ApplicationController
   def create_reply
     @discussion = Discussion.find(params[:id]).discussions
     .build(params[:discussion].merge(user_id: current_user.id))
+    
+    @discussion.logs.build(user_id: current_user.id, action: "update")
 
     respond_to do |format|
       if @discussion.save
@@ -82,6 +86,8 @@ class DiscussionsController < ApplicationController
   # PUT /discussions/1.json
   def update
     @discussion = Discussion.find(params[:id])
+    
+    @discussion.logs.build(user_id: current_user.id, action: "update")
 
     respond_to do |format|
       if @discussion.update_attributes(params[:discussion])
