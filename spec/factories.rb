@@ -7,12 +7,12 @@ FactoryGirl.define do
     email "alice@alice.com"
     password "alicealice"
     problems {[Factory(:problem)]}
-    interests { [Factory(:alices_interest)] }
-    usefuls { [Factory(:alices_useful)] }
+    # interests { [Factory(:alices_interest)] }
+    # usefuls { [Factory(:alices_useful)] }
     badges { [Factory(:silver_badge)] }
     
     # Alice follows Bob
-    follows { [Factory(:to_follow_bob)] }
+    # follows { [Factory(:to_follow_bob)] }
   end
   
   factory :user_bob, class: User do
@@ -22,7 +22,7 @@ FactoryGirl.define do
     password "bobbob"
     
     # Bob follows Alice
-    follows { [Factory(:to_follow_alice)] }
+    # follows { [Factory(:to_follow_alice)] }
   end
   
   factory :problem do
@@ -34,7 +34,7 @@ FactoryGirl.define do
   end
   
   factory :answer, class: Answer do
-    id 1
+    # id 1
     content "電荷から電場が湧き出ていることをガウスの定理を用いて表現されている。
     $$ \\sum_{n=1}^\\infty \\frac{1}{n^2} = \\frac{\\pi^2}{6} $$"
     discussions { [Factory(:super_discussion)] }

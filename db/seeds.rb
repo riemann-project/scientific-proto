@@ -6,10 +6,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-FactoryGirl.create(:user)
-FactoryGirl.create(:user_bob)
+u = FactoryGirl.build(:user)
+u.confirm!
+u.save
 
-User.all.map{|u| u.confirm!}
+u = FactoryGirl.build(:user_bob)
+u.confirm!
+u.save
 
 # Generate Badges
 FactoryGirl.create(:gold_badge)
