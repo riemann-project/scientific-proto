@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20120513232822) do
     t.integer  "loggable_id"
     t.string   "loggable_type"
     t.integer  "user_id"
+    t.string   "action"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
