@@ -1,2 +1,8 @@
 <h1>Logs#index</h1>
 <p>Find me in app/views/logs/index.html.erb</p>
+
+<% @logs.each do |l| %>
+	user_id: <%= l.user_id %><br>
+	loggable: <%= l.loggable %><br>
+	action: <%= l.action %><br>
+<% end %>
