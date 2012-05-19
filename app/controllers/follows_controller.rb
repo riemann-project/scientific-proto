@@ -3,8 +3,8 @@ class FollowsController < ApplicationController
   end
   
   def create
-    @follow = current_user.followings.build(followed_id: params[:follow])
-    
+    @follow = current_user.follows.build(followed_id: params[:user_id])
+
     @follow.logs.build(user_id: current_user.id, action: "create")
     
     respond_to do |format|
@@ -20,7 +20,7 @@ class FollowsController < ApplicationController
   
   def destroy
     @follow = Follow.find(params[:id])
-    @follo.destroy
+    @follow.destroy
     
     respond_to do |format|
       format.html { redirect_to :back }
