@@ -13,6 +13,7 @@ class DiscussionsController < ApplicationController
   # GET /discussions/1
   # GET /discussions/1.json
   def show
+    @new_discussion = Discussion.find(params[:id]).discussions.build
     @discussion = Discussion.find(params[:id])
 
     respond_to do |format|

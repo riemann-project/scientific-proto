@@ -41,12 +41,15 @@ FactoryGirl.define do
   end
   
   factory :super_discussion, class: Discussion do
+    title "回答不足ではないですか"
     content "この回答は説明不足だと思います。微分形と積分形の違い、遠隔力・近接力について記述するべきです。"
+    user_id 1
     discussable_type "Answer"
     discussions { [Factory(:discussion)] }
   end
   
   factory :discussion do
+    title ""
     content "そうですね。どなたかこの点も含めて回答つくってくださいませんか。"
     discussable_type "Discussion"
   end

@@ -2,23 +2,41 @@
 
 <h2><%= @problem.title %></h2>
 
+<%= link_to_watch @problem %>
+
+<%= link_to 'Edit', edit_problem_path(@problem) %>
+
+<hr>
+
+<%= @problem.tags %><br>
+Created at <%= @problem.created_at %><br>
+Created by <%= @problem.user.name %><br>
+
+<hr>
+
+<%= raw Sanitize.clean(@problem.content, Sanitize::Config::RELAXED) %>
+
+<hr>
+
+<h3>References</h3>
+
+<ul>
+	<%= render @problem.references %>
+</ul>
+<%= link_to "+ Reference ", new_problem_reference_path(@problem), class: "btn btn-warning" %><br>
+<hr>
+
+<%= render @problem.answers %>
+
+
+
+
 <% @problem.problem_images.each do |i| %>
   <%= image_tag i.image %><br>
   <%= link_to "Edit Image", edit_problem_problem_image_path(@problem, i), class: "btn" %><br>
 <% end %>
 
-<%= link_to "Add Image", new_problem_problem_image_path(@problem), class: "btn" %><br>
-<%= link_to_watch @problem %><br>
-<%= link_to "add reference", new_problem_reference_path(@problem), class: "btn" %><br>
+<hr>
 
-
-<%= raw Sanitize.clean(@problem.content, Sanitize::Config::RELAXED) %>
-
-<h3>References</h3>
-<%= render @problem.references %>
-
-<h3>Answers</h3>
-<%= render @problem.answers %>
-<%= link_to "Create new Answer", new_problem_answer_path(@problem) %> |
-<%= link_to 'Edit', edit_problem_path(@problem) %> |
-<%= link_to 'Back', problems_path %>
+<h3>New Answer</h3>
+<%= render partial: "answers/form", object: @answer %>

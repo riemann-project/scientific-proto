@@ -1,5 +1,4 @@
-id:<%= reference.id %><br>
-content:<%= reference.content %><br>
-created_by: <%= reference.user.name %><br>
-<%= link_to_useful reference %>
-<hr>
+<li>
+	<%= link_to reference.content[0..10], [reference.problem, reference] %> created by 
+	<%= link_to reference.user.name, reference.user %>
+</li>

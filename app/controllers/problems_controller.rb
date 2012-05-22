@@ -13,10 +13,11 @@ class ProblemsController < ApplicationController
   # GET /problems/1
   # GET /problems/1.json
   def show
+    @answer = Problem.find(params[:id]).answers.build
     @problem = Problem.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html
       format.json { render json: @problem }
     end
   end

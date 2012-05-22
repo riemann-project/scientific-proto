@@ -1,16 +1,34 @@
 <p id="notice"><%= notice %></p>
 
-<h2>
-  <%= link_to @discussion.super_answer.problem.title, @discussion.super_answer.problem %> > 
-  <%= link_to @discussion.super_answer.content[0..10], [@discussion.super_answer.problem, @discussion.super_answer] %> > 
-  <%= link_to @discussion.content[0..20], [@discussion.super_answer.problem, @discussion.super_answer, @discussion] %>
-</h2>
+	<h3>Title: <%= @discussion.title %></h3>
+	content: <%= @discussion.content %><br>
+	created_at <%= @discussion.created_at %><br>
+	created_by <%= @discussion.user.name %><br>
 
-<%= div_for(@discussion.discussions) do |d| %>
-  <%= d.content %><br />
-  <%= link_to "Show", reply_problem_answer_discussion_path(d.problem, d.super_answer, d) %>
-<% end %>
+
+
+<%= render @discussion.discussions %>
+
+<hr>
+
+<%= render partial: "discussions/form", object: @new_discussion %>
 
 <%= link_to "Reply", reply_problem_answer_discussion_path(@discussion.problem, @discussion.super_answer, @discussion) %> |
 <%= link_to 'Edit', edit_problem_answer_discussion_path(@discussion.problem, @discussion.super_answer, @discussion) %> |
 <%= link_to 'Back', problem_answer_discussions_path(@discussion.problem, @discussion.super_answer) %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

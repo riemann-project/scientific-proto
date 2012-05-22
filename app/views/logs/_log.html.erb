@@ -1,0 +1,9 @@
+<div class="log">
+	<% if log.loggable_type == "Reference" %>
+		<%= log.user.name %> <%= log.action %> <%= log.loggable.class %> in the reference that 
+		<%= link_to "Question", log.loggable.problem %>
+	<% elsif log.loggable_type == "Follow" %>
+		<%= log.user.name %> <%= log.action %> <%= log.loggable.class %> in the reference that 
+		<%= link_to log.loggable.following.name, log.loggable.follower %>
+	<% end %>
+</div>

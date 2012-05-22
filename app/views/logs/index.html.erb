@@ -1,8 +1,25 @@
-<h1>Logs#index</h1>
+<h1>Flow ボード</h1>
 <p>Find me in app/views/logs/index.html.erb</p>
 
-<% @logs.each do |l| %>
-	user_id: <%= l.user_id %><br>
-	loggable: <%= l.loggable %><br>
-	action: <%= l.action %><br>
-<% end %>
+<div class="span2">
+	<h3>Notifications</h3>
+	<h3>News Feeds</h3>
+	<h3>Boards</h3>
+	<ul>
+		<li><%= link_to "Create", nil %>
+		<li><%= link_to "Creates", nil %>
+		<li><%= link_to "Watches", nil %>
+		<li><%= link_to "Votes", nil %>
+		<li><%= link_to "Donates", nil %>
+		<li><%= link_to "Tags", nil %>
+	</ul>
+	<h3>User</h3>
+	<ul>
+		<li><%= link_to "Follows", nil %>
+		<li><%= link_to "Classmates", nil %>
+	</ul>
+</div>
+
+<div class="span7">
+	<%= render @logs %>
+</div>
