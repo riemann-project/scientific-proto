@@ -17,8 +17,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render template: "devise/registrations/after_confirm"
   end
   
+  protected
+  
   def after_sign_up_path_for(resource)
-    sign_up_2_path
+    new_authmail_path
+  end
+
+  def after_inactive_sign_up_path_for(resource)
+    new_authmail_path
   end
   
   def after_confirmation_path_for(resource)
