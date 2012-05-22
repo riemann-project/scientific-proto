@@ -8,6 +8,7 @@
 
 u = FactoryGirl.build(:user)
 u.confirm!
+u.reset_authentication_token!
 u.save
 
 u = FactoryGirl.build(:user_bob)

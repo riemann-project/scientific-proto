@@ -18,13 +18,13 @@ ScientificProto::Application.configure do
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address              => "smtp.planforgrowth.org",
-    :port                 => 587,
-    :domain               => 'planforgrowth.org',
-    :user_name            => 'info@smtp.planforgrowth.org',
-    :password             => 'V$ucXXlQ',
-    :authentication       => 'plain',
-    :enable_starttls_auto => true 
+    :address => "smtp.gmoserver.jp",
+    :port => 587,
+    :domain => 'planforgrowth.org',
+    :user_name => 'connectus_test@planforgrowth.org',
+    :password => '4iN0Kirj',
+    :authentication => 'plain',
+    :enable_starttls_auto => true
     }
 
   # Print deprecation notices to the Rails logger
