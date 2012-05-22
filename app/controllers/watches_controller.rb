@@ -5,6 +5,8 @@ class WatchesController < ApplicationController
   def create
     @watch = current_user.watches.build(problem_id: params[:problem_id])
 
+    @watch.logs.build(user_id: current_user.id, action: "create")
+
     respond_to do |format|
       if @watch.save
         format.html { redirect_to :back }
