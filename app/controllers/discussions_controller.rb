@@ -13,11 +13,11 @@ class DiscussionsController < ApplicationController
   # GET /discussions/1
   # GET /discussions/1.json
   def show
-    @new_discussion = Discussion.find(params[:id]).discussions.build
     @discussion = Discussion.find(params[:id])
+    @new_discussion = @discussion.discussions.build
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { render action: :show}
       format.json { render json: @discussion }
     end
   end
