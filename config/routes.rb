@@ -12,7 +12,7 @@ ScientificProto::Application.routes.draw do
   resources :users, :only => [:index, :show] do
     resources :watches, :only => [:index]
     resources :follows, :only => [:index, :create, :destroy]
-    resources :problem_images
+    resources :images
   end
 
   resources :problems do
@@ -30,7 +30,7 @@ ScientificProto::Application.routes.draw do
         resources :usefuls, :only => [:create, :destroy]
       end
     resources :watches, :only => [:create, :destroy]
-    resources :problem_images, :except => [:index, :show]
+    # resources :problem_images, :except => [:index, :show]
   end
   
   resources :logs, :only => [:index]

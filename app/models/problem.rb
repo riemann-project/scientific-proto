@@ -8,8 +8,6 @@ class Problem < ActiveRecord::Base
   has_many :answers
   has_many :references
   
-  has_many :problem_images
-  
   has_many :logs, as: :loggable
   
   acts_as_taggable
