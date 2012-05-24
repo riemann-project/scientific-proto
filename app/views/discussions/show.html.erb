@@ -11,7 +11,7 @@
 
 <hr>
 
-<%= render partial: "discussions/form", object: @new_discussion %>
+<%= render partial: "discussions/form", object: @discussion, locals: { discussion: @new_discussion } %>
 
 <%= link_to "Reply", reply_problem_answer_discussion_path(@discussion.problem, @discussion.super_answer, @discussion) %> |
 <%= link_to 'Edit', edit_problem_answer_discussion_path(@discussion.problem, @discussion.super_answer, @discussion) %> |

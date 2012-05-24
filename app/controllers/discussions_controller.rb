@@ -15,6 +15,8 @@ class DiscussionsController < ApplicationController
   def show
     @discussion = Discussion.find(params[:id])
     @new_discussion = @discussion.discussions.build
+    
+    @discussion.discussions.pop
 
     respond_to do |format|
       format.html { render action: :show}
