@@ -1,6 +1,6 @@
-class Images < ActiveRecord::Migration
+class CreateImages < ActiveRecord::Migration
   def change
-    create_table :problem_images do |t|
+    create_table :images do |t|
       t.integer :user_id
       t.string :image
 

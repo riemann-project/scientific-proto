@@ -14,7 +14,7 @@ class ProblemsController < ApplicationController
   # GET /problems/1.json
   def show
     @problem = Problem.find(params[:id])
-    @answer = @problem.answers.build
+    @answer = current_user.answers.build(problem_id: @problem.id)
 
     respond_to do |format|
       format.html { render action: :show }

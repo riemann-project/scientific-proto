@@ -1,9 +1,6 @@
 <div class="answer">
 	
 	<h3>Answers</h3>
-	<%= link_to "good", problem_answer_good_path(@problem, answer), method: :post %> | 
-	<%= link_to "bad", problem_answer_bad_path(@problem, answer), method: :post %> | 
-	<%= link_to "edit", edit_problem_answer_path(answer.problem, answer) %><br>
 
 	title: <%= answer.title %><br>
   content: <%= raw Sanitize.clean(answer.content, Sanitize::Config::RELAXED) %><br>
@@ -15,6 +12,6 @@
 	<ul>
 		<%= render partial: "discussions/discussion_li", collection: answer.discussions %>
 	</ul>
-	<%= link_to "+ Discussion", new_problem_answer_discussion_path(answer.problem, answer), class: "btn btn-success" %>
+	<%= link_to "+ Discussion", new_problem_answer_discussion_path(answer.problem_id, answer.id), class: "btn btn-success" %>
 </div>
 <hr/>

@@ -28,14 +28,6 @@ Created by <%= @problem.user.name %><br>
 
 <%= render @problem.answers %>
 
-
-
-
-<% @problem.problem_images.each do |i| %>
-  <%= image_tag i.image %><br>
-  <%= link_to "Edit Image", edit_problem_problem_image_path(@problem, i), class: "btn" %><br>
-<% end %>
-
 <hr>
 
 <h3>New Answer</h3>
