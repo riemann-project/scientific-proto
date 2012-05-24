@@ -35,6 +35,7 @@ FactoryGirl.define do
   
   factory :answer, class: Answer do
     id 1
+    title "ガウスの法則回答"
     content "電荷から電場が湧き出ていることをガウスの定理を用いて表現されている。
     $$ \\sum_{n=1}^\\infty \\frac{1}{n^2} = \\frac{\\pi^2}{6} $$"
     discussions { [Factory(:super_discussion)] }

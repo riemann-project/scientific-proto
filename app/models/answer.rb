@@ -1,5 +1,5 @@
 class Answer < ActiveRecord::Base
-  attr_accessible :content, :problem_id
+  attr_accessible :title, :content, :problem_id
 
   belongs_to :user
 
@@ -10,8 +10,4 @@ class Answer < ActiveRecord::Base
   has_many :votes
 
   has_many :logs, as: :loggable
-  
-  def title
-    "this method returns Answer's title"
-  end
 end
