@@ -1,5 +1,5 @@
 class Problem < ActiveRecord::Base
-  attr_accessible :title, :content
+  attr_accessible :content
   belongs_to :user
   
   has_many :watches

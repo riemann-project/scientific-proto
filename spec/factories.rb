@@ -26,7 +26,7 @@ FactoryGirl.define do
   end
   
   factory :problem do
-    title "電磁気II 期末テスト 大問1"
+    # title "電磁気II 期末テスト 大問1"
     content "ガウスの法則を定性的に説明せよ"
     answers { [Factory(:answer)] }
     references {[Factory(:reference)]}

@@ -4,7 +4,6 @@
 	watch: <%= problem.watching_users.count %><br>
 	discussions: <%= problem.answers.map{|a| a.discussions.count}.inject(0){|x, y| x + y} %><br>
 	<br>
-	<h3><%= link_to problem.title[0..20], problem %></h3>
 	created_at: <%= problem.created_at %><br>
 	created_by: <%= problem.user.name %><br>
 	<br>

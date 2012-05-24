@@ -70,7 +70,6 @@ ActiveRecord::Schema.define(:version => 20120530161648) do
 
   create_table "problems", :force => true do |t|
     t.text     "content"
-    t.string   "title"
     t.integer  "user_id"
     t.integer  "view"
     t.datetime "created_at", :null => false
