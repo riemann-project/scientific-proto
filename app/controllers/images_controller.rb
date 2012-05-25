@@ -2,7 +2,8 @@
 class ImagesController < ApplicationController
   require "rmagick"
   # include Magick
-
+  protect_from_forgery :except => [:create]
+  
   def index
     @images = current_user.images
   end

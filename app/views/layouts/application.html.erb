@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name = "viewport" content = "width = device-width">
   <title>ScientificProto</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/1.1-latest/MathJax.js?config=default"></script>
@@ -9,6 +10,14 @@
 
   <%= csrf_meta_tags %>
 </head>
+
+<% if current_user %>
+	<script type="text/javascript" charset="utf-8">
+		var user_id = "<%= current_user.id %>";
+		var auth_token = "<%= current_user.authentication_token %>";
+	</script>
+<% end %>
+
 <body class="<%= controller.controller_name %> <%= controller.action_name %>">
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
@@ -36,6 +45,7 @@
 <div class="container">
   <%= yield %>
 </div>
+
 
 </body>
 </html>
