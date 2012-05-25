@@ -1,4 +1,3 @@
-
 class ImagesController < ApplicationController
   require "rmagick"
   # include Magick
@@ -18,7 +17,8 @@ class ImagesController < ApplicationController
     respond_to do |format|
       if @image.save
         format.html { redirect_to user_images_path(current_user), notice: 'Image was successfully created.' }
-        format.json { render json: @image, status: :created, location: @image }
+        # format.html { render json: @image, status: :created, location: @image }
+        format.json { render :partial => "images/create.json" }
       else
         format.html { render action: "new" }
         format.json { render json: @image.errors, status: :unprocessable_entity }
