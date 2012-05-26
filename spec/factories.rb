@@ -3,9 +3,10 @@
 FactoryGirl.define do
   factory :user do
     id 1
-    name "Alice"
-    email "alice@alice.com"
-    password "alicealice"
+    name "Ohata"
+    student_id 6210025
+    email "j6212205@ed.tus.ac.jp"
+    password "rikadai"
     problems {[Factory(:problem)]}
     # interests { [Factory(:alices_interest)] }
     # usefuls { [Factory(:alices_useful)] }
@@ -15,10 +16,11 @@ FactoryGirl.define do
     follows { [Factory(:to_follow_bob)] }
   end
   
-  factory :user_bob, class: User do
+  factory :user_2, class: User do
     id 2
-    name "Bob"
-    email "bob@bob.com"
+    name "Saiwaki"
+    student_id 7310059
+    email "j7310059@ed.tus.ac.jp"
     password "bobbob"
     
     # Bob follows Alice
