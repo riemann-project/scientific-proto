@@ -2,12 +2,14 @@ ScientificProto::Application.routes.draw do
 
   resources :badges
 
-    devise_for :users, :controllers => { :registrations => "users/registrations",
-      :confirmations => "users/confirmations" } do
-      get "users/door", to: "users/registrations#door", as: "door"
-      get "users/sign_up_2", to: "users/registrations#show_inbox", as: "show_inbox"
-      get "users/sign_up_4", to: "users/confirmations#after_confirm", as: "after_confirm"
-    end
+  devise_for :users, :controllers => { :registrations => "users/registrations",
+                                       :confirmations => "users/confirmations",
+                                       :sessions => "users/sessions" } do
+    get "users/door", to: "users/registrations#door", as: "door"
+    get "users/sign_up_2", to: "users/registrations#show_inbox", as: "show_inbox"
+    get "users/sign_up_3", to: "users/confirmations#after_confirm", as: "after_confirm"
+    get "users/mobile_sign_in", to: "users/sessions#mobile_new", as: "new_mobile"
+  end
 
   resources :users, :except => [:new, :delete] do
     resources :watches, :only => [:index]
@@ -17,6 +19,11 @@ ScientificProto::Application.routes.draw do
 
   resources :problems do
     match "tag/:tag_name" => "problems#tag", :as => "tag", :on => :collection
+    resources :watches, :only => [:create, :destroy]
+    # resources :problem_images, :except => [:index, :show]
+    resources :references, :only => [:new, :create, :edit, :destroy] do
+      resources :usefuls, :only => [:create, :destroy]
+    end
     resources :answers, :except => [:index] do
       resources :discussions, :except => [:index] do
         get "reply", :on => :member
@@ -26,12 +33,7 @@ ScientificProto::Application.routes.draw do
       post "good", :controller => "votes", :action => "vote_good"
       post "bad", :controller => "votes", :action => "vote_bad"
       delete "delete", :controller => "votes", :action => "destroy"
-    end  
-      resources :references, :only => [:new, :create, :edit, :destroy] do
-        resources :usefuls, :only => [:create, :destroy]
-      end
-    resources :watches, :only => [:create, :destroy]
-    # resources :problem_images, :except => [:index, :show]
+    end
   end
   
   resources :logs, :only => [:index]
