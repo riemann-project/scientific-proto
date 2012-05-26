@@ -18,7 +18,7 @@
 	</script>
 <% end %>
 
-<body class="<%= controller.controller_name %> <%= controller.action_name %>">
+<body class="<%= controller.controller_name %>-<%= controller.action_name %>">
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
@@ -26,9 +26,9 @@
         <%= link_to "Pipet", root_path, class: "brand" %>
         <li><%= link_to "Problems", problems_path %>
         <li><%= link_to "+", new_problem_path %>
-		<li><form class="navbar-search pull-left"><input type="text" class="search-jquery" placeholder="Search..." style="width:30px;" width="1" /></form>
+		    <li><form class="navbar-search pull-left"><input type="text" class="search-jquery" placeholder="Search..." style="width:30px;" width="1" /></form>
         <li><%= link_to "Collections", nil %>
-		<li><%= link_to "Badges", badges_path %>
+		    <li><%= link_to "Badges", badges_path %>
         <li><%= link_to "Users", users_path %>
         <li><%= link_to "Rankings", nil %>
         <li><%= link_to "My Profile", current_user %>

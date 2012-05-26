@@ -1,6 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   prepend_before_filter :require_no_authentication, :only => [ :new, :create, :cancel ]
-  
+  layout 'registrations'
+
   def door
     render template: "devise/registrations/door"
   end
