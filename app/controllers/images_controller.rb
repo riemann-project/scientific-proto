@@ -11,7 +11,11 @@ class ImagesController < ApplicationController
   end
   
   def create
-    @image = current_user.images.build(params[:image])
+    if params[:picture].class.to_s == "ActionDispatch::Http::UploadedFile"
+      @picture = Picture.new(picture: params[:picture])
+    else
+      @picture = Picture.new(params[:picture])
+    end
 
     respond_to do |format|
       if @image.save
