@@ -1,0 +1,17 @@
+<h2>Edit your profile</h2>
+
+<%= form_for @user do |f| -%>
+	<%= f.label :department %><br>
+	<%= f.text_field :department, :placeholder => "Department of Science and Engineering" %><br>
+	
+	<%= f.label :course %><br>
+	<%= f.text_field :course, :placeholder => "Physics" %><br>
+	
+	<%= f.label :grade %><br>
+	<%= f.number_field :grade %><br>
+	
+	<%= f.label :avatar %><br>
+	<%= f.file_field :avatar %><br>
+
+	<%= f.submit %>
+<% end -%>

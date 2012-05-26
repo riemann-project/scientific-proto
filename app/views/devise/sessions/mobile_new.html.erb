@@ -1,12 +1,11 @@
-<h2>Sign in</h2>
+this is sign in page for mobile phones.<br>
 
-<%= notice %>
+please find this app/views/devise/sessions/mobile_new.html.erb
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div>
-  j<%= f.number_field :student_id %>@ed.tus.ac.jp
-</div>
- 
+  <div><%= f.label :student_id %><br />
+  <%= f.number_field :student_id %></div>
+
   <div><%= f.label :password %><br />
   <%= f.password_field :password %></div>
 
@@ -17,4 +16,4 @@
   <div><%= f.submit "Sign in" %></div>
 <% end %>
 
-<%= render "links" %>
+<%= render :partial => "devise/shared/links" %>
