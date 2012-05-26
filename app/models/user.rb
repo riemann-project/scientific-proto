@@ -3,12 +3,14 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :confirmable, :token_authenticatable
+         :confirmable, :token_authenticatable, :authentication_keys => [:student_id]
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation,:remember_me,
-                  :grade, :name, :department, :course, :student_id
+                  :grade, :name, :department, :course, :student_id, :avatar
   # attr_accessible :title, :body
+  
+  # attr_accessible :login
   
   has_many :problems
   has_many :answers
@@ -37,6 +39,8 @@ class User < ActiveRecord::Base
   has_many :badges, through: :user_badges
   
   has_many :logs
+  
+  mount_uploader :avatar, AvatarUploader
   
   before_validation do
     self.email = "j#{self.student_id}@ed.tus.ac.jp"
