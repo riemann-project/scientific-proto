@@ -135,6 +135,7 @@ ActiveRecord::Schema.define(:version => 20120530161649) do
     t.integer  "grade"
     t.string   "department"
     t.string   "course"
+    t.string   "avatar"
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
