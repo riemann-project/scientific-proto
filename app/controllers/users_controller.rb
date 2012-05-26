@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
   
   def edit
-    render text: "edit user"
+    @user = current_user
   end
   
   def update

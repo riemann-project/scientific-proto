@@ -3,8 +3,9 @@
 <%= notice %>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :student_id %><br />
-  <%= f.number_field :student_id %></div>
+  <div>
+  j<%= f.number_field :student_id %>@ed.tus.ac.jp
+</div>
  
   <div><%= f.label :password %><br />
   <%= f.password_field :password %></div>
@@ -17,5 +18,3 @@
 <% end %>
 
 <%= render "links" %>
-<%= link_to "Sign in", root_path %><br>
-<%= link_to "Sign & up", new_user_registration_path %>
