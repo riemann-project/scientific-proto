@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
          :confirmable, :token_authenticatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation,
-                  :remember_me, :grade, :name, :department, :course
+  attr_accessible :email, :password, :password_confirmation,:remember_me,
+                  :grade, :name, :department, :course, :student_id
   # attr_accessible :title, :body
   
   has_many :problems
@@ -37,4 +37,11 @@ class User < ActiveRecord::Base
   has_many :badges, through: :user_badges
   
   has_many :logs
+  
+  before_validation do
+    self.email = "j#{self.student_id}@ed.tus.ac.jp"
+  end
+  
+  validates_numericality_of :student_id
+  validates_inclusion_of :student_id, in: 6210001..7609999
 end

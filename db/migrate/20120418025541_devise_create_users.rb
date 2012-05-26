@@ -3,6 +3,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
     create_table(:users) do |t|
       t.float :deviation
       t.integer :account
+      t.integer :student_id
       t.string :name
       t.integer :grade
       t.string :department
