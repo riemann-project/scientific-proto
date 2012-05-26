@@ -1,0 +1,21 @@
+After Confirmation<br>
+
+<%= form_for(current_user, :url => user_path(current_user), :html => { :method => :put }) do |f| %>
+  <%# devise_error_messages! %>
+
+  <div><%= f.label :name %><br />
+  <%= f.text_field :name %></div>
+
+  <div><%= f.label :grade %><br />
+  <%= f.number_field :grade %></div>
+
+  <div><%= f.label :department %><br />
+  <%= f.text_field :department %></div>
+
+  <div><%= f.label :course %><br />
+  <%= f.text_field :course %></div>
+
+  <div><%= f.submit "Update" %></div>
+<% end %>
+<hr>
+<%= render "links" %>
