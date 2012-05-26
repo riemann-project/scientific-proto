@@ -4,6 +4,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.float :deviation
       t.integer :account
       t.string :name
+      t.integer :grade
+      t.string :department
+      t.string :course
       
       ## Database authenticatable
       t.string :email,              :null => false, :default => ""

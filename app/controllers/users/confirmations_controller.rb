@@ -1,9 +1,8 @@
 class Users::ConfirmationsController < Devise::ConfirmationsController
 
   def after_confirm
-    if not user_signed_in?
-      redirect_to door_path
-    end
+      redirect_to door_path if not user_signed_in?
+      @user = current_user
   end
 
   # def after_resending_confirmation_instructions_path_for(resource_name)

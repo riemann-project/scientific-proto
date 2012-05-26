@@ -131,6 +131,9 @@ ActiveRecord::Schema.define(:version => 20120530161649) do
     t.float    "deviation"
     t.integer  "account"
     t.string   "name"
+    t.integer  "grade"
+    t.string   "department"
+    t.string   "course"
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
