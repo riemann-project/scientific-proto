@@ -5,8 +5,7 @@ ScientificProto::Application.routes.draw do
   devise_for :users, :controllers => { :registrations => "users/registrations",
     :confirmations => "users/confirmations" } do
     get "users/door", to: "users/registrations#door", as: "door"
-    get "users/sign_up_2", to: "users/registrations#new_authmail", as: "new_authmail"
-    get "users/sign_up_3", to: "users/registrations#show_inbox", as: "show_inbox"
+    get "users/sign_up_2", to: "users/registrations#show_inbox", as: "show_inbox"
     get "users/sign_up_4", to: "users/confirmations#after_confirm", as: "after_confirm"
   end
 
@@ -17,6 +16,7 @@ ScientificProto::Application.routes.draw do
   end
 
   resources :problems do
+    match "tag/:tag_name" => "problems#tag", :as => "tag", :on => :collection
     resources :answers, :except => [:index] do
       resources :discussions, :except => [:index] do
         get "reply", :on => :member
