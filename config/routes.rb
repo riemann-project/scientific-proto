@@ -16,6 +16,7 @@ ScientificProto::Application.routes.draw do
   end
 
   resources :problems do
+    match "tag/:tag_name" => "problems#tag", :as => "tag", :on => :collection
     resources :answers, :except => [:index] do
       resources :discussions, :except => [:index] do
         get "reply", :on => :member

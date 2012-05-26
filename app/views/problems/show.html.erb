@@ -6,7 +6,10 @@
 
 <hr>
 
-<%= @problem.tags %><br>
+<h2>Tags</h2>
+<% tag_cloud(@problem.tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+	<%= link_to tag.name, tag_problems_path(tag.name) , :class => css_class %>
+<% end %><br>
 Created at <%= @problem.created_at %><br>
 Created by <%= @problem.user.name %><br>
 

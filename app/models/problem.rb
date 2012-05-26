@@ -1,5 +1,5 @@
 class Problem < ActiveRecord::Base
-  attr_accessible :content
+  attr_accessible :content, :tag_list
   belongs_to :user
   
   has_many :watches

@@ -83,4 +83,10 @@ class ProblemsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def tag
+    @problems = Problem.tagged_with(params[:tag_name])
+    
+    render action: :index
+  end
 end
