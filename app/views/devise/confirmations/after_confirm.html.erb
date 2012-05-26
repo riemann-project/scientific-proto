@@ -1,0 +1,22 @@
+After Confirmation<br>
+
+<%= form_for(current_user, :url => edit_user_registration_path, :html => { :method => :put }) do |f| %>
+  <%# devise_error_messages! %>
+
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email %></div>
+
+  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+  <%= f.password_field :password, :autocomplete => "on" %></div>
+
+  <div><%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %></div>
+
+  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+  <%# f.password_field :current_password %></div>
+  <%= f.hidden_field :current_password, value:  %>
+
+  <div><%= f.submit "Update" %></div>
+<% end %>
+<hr>
+<%= render "links" %>

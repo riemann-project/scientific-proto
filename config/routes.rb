@@ -2,11 +2,12 @@ ScientificProto::Application.routes.draw do
 
   resources :badges
 
-  devise_for :users, :controllers => { :registrations => "users/registrations" } do
+  devise_for :users, :controllers => { :registrations => "users/registrations",
+    :confirmations => "user/confirmations" } do
     get "users/door", to: "users/registrations#door", as: "door"
     get "users/sign_up_2", to: "users/registrations#new_authmail", as: "new_authmail"
     get "users/sign_up_3", to: "users/registrations#show_inbox", as: "show_inbox"
-    get "users/sign_up_4", to: "users/registrations#after_confirm", as: "after_confirm"
+    get "users/sign_up_4", to: "users/confirmations#after_confirm", as: "after_confirm"
   end
 
   resources :users, :only => [:index, :show] do
