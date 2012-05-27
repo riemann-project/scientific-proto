@@ -1,20 +1,26 @@
-<h2>Sign in</h2>
+<h2>ログインフォーム</h2>
 
 <%= notice %>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div>
-  j<%= f.number_field :student_id %>@ed.tus.ac.jp
-</div>
+  <div id="student_number">
+		<strong>学籍番号</strong><br />
+	  <strong>j</strong> <%= f.text_field :student_id %> <strong>@ed.tus.ac.jp</strong>
+	</div>
  
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+  <div id="password">
+		<strong>パスワード</strong><br />
+  	<%= f.password_field :password %>
+	</div>
 
   <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+    <div><%= f.check_box :remember_me %> <strong> 保存する</strong></div>
   <% end -%>
 
-  <div><%= f.submit "Sign in" %></div>
+  <div><%= f.submit "ログイン",class: "btn" %></div>
+
 <% end %>
 
-<%= render "links" %>
+	<div class="links">
+		<%= render "links" %>
+	</div>
