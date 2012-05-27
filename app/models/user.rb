@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
   has_many :followings, class_name: "User", through: :follows
   validates_associated :followings
   has_many :followeds, class_name: "Follow", foreign_key: :followed_id
-  validates_associated :followerds
+  validates_associated :followeds
   has_many :followers, class_name: "User", through: :followeds
   validates_associated :followers
   
