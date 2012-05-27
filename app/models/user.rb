@@ -35,26 +35,26 @@ class User < ActiveRecord::Base
   validates_associated :watched_problems
   
   has_many :follows
-  validates_associated :follows
   has_many :followings, class_name: "User", through: :follows
-  validates_associated :followings
   has_many :followeds, class_name: "Follow", foreign_key: :followed_id
-  validates_associated :followeds
   has_many :followers, class_name: "User", through: :followeds
+  validates_associated :follows
+  validates_associated :followings
+  validates_associated :followeds
   validates_associated :followers
   
   has_many :interests
   validates_associated :interests
-  has_many :interesting_discussions, class_name: "Discussion", through: :interests
+  has_many :interesting_discussions, class_name: "Discussion"
   validates_associated :interesting_discussions
   
   has_many :votes
   validates_associated :votes
   
   has_many :usefuls
+  has_many :useful_references, class_name: "Reference", through: :usefuls
   validates_associated :usefuls
-  # has_many :useful_references, class_name: "Reference", through: :usefuls, foreign_key: :user_id
-  # validates_associated :useful_references
+  validates_associated :useful_references
   
   has_many :user_badges
   validates_associated :user_badges
