@@ -53,8 +53,8 @@ class User < ActiveRecord::Base
   
   has_many :usefuls
   validates_associated :usefuls
-  has_many :useful_references, class_name: "Reference", through: :usefuls
-  validates_associated :useful_references
+  # has_many :useful_references, class_name: "Reference", through: :usefuls, foreign_key: :user_id
+  # validates_associated :useful_references
   
   has_many :user_badges
   validates_associated :user_badges

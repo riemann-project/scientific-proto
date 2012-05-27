@@ -1,5 +1,7 @@
-<p>Welcome <%= @resource.email %>!</p>
+Pipet.sc へようこそ！
 
-<p>You can confirm your account email through the link below:</p>
+以下のURLをクリックして、登録を完了してください。
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
+<%= confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %>
+
+Pipet運営より
