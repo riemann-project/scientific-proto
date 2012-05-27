@@ -1,27 +1,29 @@
 # coding: utf-8
 
 FactoryGirl.define do
-  factory :user do
-    id 1
-    name "Ohata"
+  
+  factory :user_ohata, class: User do
+    # id 1
+    name "ohata"
     student_id 6210025
-    email "j6212205@ed.tus.ac.jp"
+    email "j6210025@ed.tus.ac.jp"
     password "rikadai"
-    problems {[Factory(:problem)]}
+    
+    # problems {[Factory(:problem)]}
     # interests { [Factory(:alices_interest)] }
     # usefuls { [Factory(:alices_useful)] }
-    badges { [Factory(:silver_badge)] }
+    # badges { [Factory(:silver_badge)] }
     
     # Alice follows Bob
-    follows { [Factory(:to_follow_bob)] }
+    # follows { [Factory(:to_follow_bob)] }
   end
   
   factory :user_2, class: User do
-    id 2
+    # id 2
     name "Saiwaki"
     student_id 7310059
-    email "j7310059@ed.tus.ac.jp"
-    password "bobbob"
+    email "j6310059@ed.tus.ac.jp"
+    password "rikadai"
     
     # Bob follows Alice
     # follows { [Factory(:to_follow_alice)] }
