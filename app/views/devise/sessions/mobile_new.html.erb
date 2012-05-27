@@ -17,7 +17,7 @@
 <body class="<%= controller.controller_name %>-<%= controller.action_name %>">
 	<div class="container">
 		<h2>Pipet ログインページ</h2>
-		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+			<%= form_for(resource, :as => resource_name, :url => mobile_create_session_path(resource_name)) do |f| %>
 		  <div><strong>学籍番号</strong><br />
 		  <strong>j</strong><%= f.text_field :student_id %><strong>@ed.tus.ac.jp</strong></div>
 
