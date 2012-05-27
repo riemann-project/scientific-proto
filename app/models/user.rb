@@ -7,10 +7,15 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation,:remember_me,
-                  :grade, :name, :department, :course, :student_id, :avatar
+                  :grade, :name, :department, :course, :student_id, :avatar, :authentication_token
   # attr_accessible :title, :body
   
   # attr_accessible :login
+  
+  def student_id= n
+    super
+    self.email = "j#{n}@ed.tus.ac.jp"
+  end
   
   validates :email, uniqueness: true
   validates :name, uniqueness: { case_sensitive: false }
@@ -66,8 +71,9 @@ class User < ActiveRecord::Base
   
   mount_uploader :avatar, AvatarUploader
   
-  before_validation do
-    self.email = "j#{self.student_id}@ed.tus.ac.jp"
+  def confirm!
+    self.reset_authentication_token!
+    super
   end
   
   validates_numericality_of :student_id
