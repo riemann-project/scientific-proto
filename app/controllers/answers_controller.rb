@@ -24,7 +24,7 @@ class AnswersController < ApplicationController
   # GET /answers/new
   # GET /answers/new.json
   def new
-    @answer = Answer.new(problem_id: params[:problem_id])
+    @answer = current_user.answers.build(problem_id: params[:problem_id])
 
     respond_to do |format|
       format.html # new.html.erb
