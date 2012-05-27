@@ -2,7 +2,7 @@ this is sign in page for mobile phones.<br>
 
 please find this app/views/devise/sessions/mobile_new.html.erb
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+<%= form_for(resource, :as => resource_name, :url => mobile_create_session_path(resource_name)) do |f| %>
   <div><%= f.label :student_id %><br />
   <%= f.number_field :student_id %></div>
 

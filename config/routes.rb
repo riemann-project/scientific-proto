@@ -8,7 +8,8 @@ ScientificProto::Application.routes.draw do
     get "users/door", to: "users/registrations#door", as: "door"
     get "users/sign_up_2", to: "users/registrations#show_inbox", as: "show_inbox"
     get "users/sign_up_3", to: "users/confirmations#after_confirm", as: "after_confirm"
-    get "users/mobile_sign_in", to: "users/sessions#mobile_new", as: "new_mobile"
+    get "users/mobile_sign_in", to: "users/sessions#mobile_new", as: "mobile_new_session"
+    post "users/mobile_sign_in", to: "users/sessions#mobile_create", as: "mobile_create_session"
   end
 
   resources :users, :except => [:new, :delete] do

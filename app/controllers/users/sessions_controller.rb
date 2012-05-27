@@ -1,5 +1,6 @@
 class Users::SessionsController < Devise::SessionsController
-  prepend_before_filter :require_no_authentication, :only => [ :new, :create, :mobile_new ]
+  prepend_before_filter :require_no_authentication, :only => [ :new, :create, :mobile_create ]
+  prepend_before_filter :allow_params_authentication!, :only => [:create, :mobile_create]
   
   def mobile_new
     resource = build_resource(nil)
