@@ -3,7 +3,7 @@ class Image < ActiveRecord::Base
   
   belongs_to :user
   validates_associated :user
-  
+
   mount_uploader :image, ImageUploader
   validates_presence_of :image
 end

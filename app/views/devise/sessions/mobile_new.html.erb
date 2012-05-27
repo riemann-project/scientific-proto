@@ -1,19 +1,34 @@
-this is sign in page for mobile phones.<br>
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Pipet / Sign in(Mobile)</title>
+	<%= stylesheet_link_tag    "application", :media => "all" %>
+	<%= javascript_include_tag "application" %>
+</head>
 
-please find this app/views/devise/sessions/mobile_new.html.erb
-
-<%= form_for(resource, :as => resource_name, :url => mobile_create_session_path(resource_name)) do |f| %>
-  <div><%= f.label :student_id %><br />
-  <%= f.number_field :student_id %></div>
-
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
-
-  <div><%= f.submit "Sign in" %></div>
+<% if current_user %>
+	<script type="text/javascript" charset="utf-8">
+		var user_id = "<%= current_user.id %>";
+		var auth_token = "<%= current_user.authentication_token %>";
+	</script>
 <% end %>
 
-<%= render :partial => "devise/shared/links" %>
+<body class="<%= controller.controller_name %>-<%= controller.action_name %>">
+	<div class="container">
+		<h2>Pipet ログインページ</h2>
+			<%= form_for(resource, :as => resource_name, :url => mobile_create_session_path(resource_name)) do |f| %>
+		  <div><strong>学籍番号</strong><br />
+		  <strong>j</strong><%= f.text_field :student_id %><strong>@ed.tus.ac.jp</strong></div>
+
+		  <div><strong>パスワード</strong><br />
+		  <%= f.password_field :password %></div>
+
+		  <div><%= f.submit "ログイン",class: "btn btn-primary" %></div>
+		<% end %>
+		<p>※Pipet(http://pipet.sc)の補助アプリです。<br />
+		また、新規登録はPCからしかできません。<br />
+		ご注意ください。</p>
+	</div>
+</body>
+</html>
