@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name = "viewport" content = "width = device-width">
   <title>Pipet</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/1.1-latest/MathJax.js?config=default"></script>
@@ -21,37 +20,21 @@
 	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	  })();
-
 	</script>
+	
+	<!-- for mobile signin -->
+	<% if current_user %>
+		<script type="text/javascript" charset="utf-8">
+			var user_id = "<%= current_user.id %>";
+			var auth_token = "<%= current_user.authentication_token %>";
+		</script>
+	<% end %>
 </head>
 <body class="<%= controller.controller_name %>-<%= controller.action_name %>">
-<div class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
-      <ul class="nav">
-        <%= link_to "Pipet", root_path, class: "brand" %>
-        <li><%= link_to "Problems", problems_path %>
-        <li><%= link_to "+", new_problem_path %>
-		    <li><form class="navbar-search pull-left"><input type="text" class="search-jquery" placeholder="Search..." style="width:30px;" width="1" /></form>
-        <li><%= link_to "Collections", nil %>
-		    <li><%= link_to "Badges", badges_path %>
-        <li><%= link_to "Users", users_path %>
-        <li><%= link_to "Rankings", nil %>
-        <li><%= link_to "My Profile", current_user %>
-        <li><%= link_to "notification", nil %>
-        <li><%= link_to "settings", edit_user_registration_path %>
-        <li><%= link_to "Help", nil %>
-        <li><%= link_to "Sign in", new_user_session_path if not user_signed_in? %>
-        <li><%= link_to "Sign out", destroy_user_session_path, method: :delete if user_signed_in? %>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <%= yield %>
-</div>
-
-
+	<%= render 'layouts/header' %>
+	<div class="container">
+	  <%= yield %>
+	</div>
+	<%= render 'layouts/footer' %>
 </body>
 </html>
