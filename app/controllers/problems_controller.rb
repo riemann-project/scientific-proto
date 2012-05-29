@@ -42,10 +42,11 @@ class ProblemsController < ApplicationController
   # POST /problems.json
   def create
     @problem = current_user.problems.build(params[:problem])
-    @problem.logs.build(user_id: current_user.id, action: "create")
 
     respond_to do |format|
       if @problem.save
+        @log = current_user.logs.build(loggable_type: "Problem", loggable_id: @problem.id, action: "create")
+        @log.save
         format.html { redirect_to @problem, notice: 'Problem was successfully created.' }
         format.json { render json: @problem, status: :created, location: @problem }
       else
@@ -59,10 +60,11 @@ class ProblemsController < ApplicationController
   # PUT /problems/1.json
   def update
     @problem = Problem.find(params[:id])
-    @problem.logs.build(user_id: current_user.id, action: "update")
+    @log = current_user.logs.build(loggable_type: "Problem", loggable_id: params[:id])
 
     respond_to do |format|
       if @problem.update_attributes(params[:problem])
+        @log.save
         format.html { redirect_to @problem, notice: 'Problem was successfully updated.' }
         format.json { head :no_content }
       else
