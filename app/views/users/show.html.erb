@@ -5,7 +5,7 @@
 
 <h2>watched problems</h2>
 
-<%= image_tag @user.avatar_url %>
+<%= avatar_tag @user %>
 
 <% @user.watched_problems.each do |p| %>
   <%= p %><br>
@@ -26,4 +26,4 @@
   <%= link_to u.email, u %>
 <% end %>
 
-<%= link_to "Edit user's profile", edit_user_path(current_user) %>
+<%= link_to "Edit user's profile", profile_edit_users_path(current_user) %>

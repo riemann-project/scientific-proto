@@ -11,4 +11,12 @@ module UsersHelper
       "disabled button"
     end
   end
+  
+  def avatar_tag user, option = ""
+    if user.avatar_url == nil
+      image_tag "default_icon"
+    else
+      image_tag user.avatar_url(:thumb)
+    end
+  end
 end
