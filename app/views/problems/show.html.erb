@@ -1,25 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div class="container content">
+	<div class="row">
+		<div class="span9">
+			<div class="qindex-board">
+				<div class="qindex">
+					<p id="notice"><%= notice %></p>
+					<h2>EE2>基礎エネルギー工学>H.20>前期定期>問１</h2>
+					<%= link_to_watch @problem %>
 
-<%= link_to_watch @problem %>
+					<%= link_to 'Edit', edit_problem_path(@problem) %><hr>
+				</div>
+				<% tag_cloud(@problem.tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+				<%= link_to tag.name, tag_problems_path(tag.name) , :class => css_class %>
+				<% end %><br>
+				Created at <%= @problem.created_at %><br>
+				Created by <%= @problem.user.name %><br>
+			</div>
 
-<%= link_to 'Edit', edit_problem_path(@problem) %>
+			<div class="question">
+				<%= image_tag "q_40.png", class: "q_40" %><%= raw Sanitize.clean(@problem.content, Sanitize::Config::RELAXED) %>
+			</div>
 
-<hr>
+			<div class="reference">Reference</div>
+		</div>
+	</div>
+</div>
 
-<h2>Tags</h2>
-<% tag_cloud(@problem.tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
-	<%= link_to tag.name, tag_problems_path(tag.name) , :class => css_class %>
-<% end %><br>
-Created at <%= @problem.created_at %><br>
-Created by <%= @problem.user.name %><br>
 
-<hr>
 
-<%= raw Sanitize.clean(@problem.content, Sanitize::Config::RELAXED) %>
-
-<hr>
-
-<h3>References</h3>
 
 <ul>
 	<%= render @problem.references %>
