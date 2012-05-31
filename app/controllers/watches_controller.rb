@@ -5,10 +5,11 @@ class WatchesController < ApplicationController
   def create
     @watch = current_user.watches.build(problem_id: params[:problem_id])
 
-    @watch.logs.build(user_id: current_user.id, action: "create")
+    @log = current_user.logs.build(loggable_type: "Watch", loggable_id: @watch.id, action: "create")
 
     respond_to do |format|
       if @watch.save
+        @log.save
         format.html { redirect_to :back }
         format.json { render json: @watch, status: :created, location: @watch }
       else

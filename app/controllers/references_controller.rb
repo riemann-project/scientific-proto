@@ -40,13 +40,12 @@ class ReferencesController < ApplicationController
   # POST /references
   # POST /references.json
   def create
-    @reference = current_user.references.build(params[:reference])
+    @reference = current_user.references.build(params[:reference].concat(params[:problem_id]))
     @reference.problem_id = params[:problem_id]
-    
-    @reference.logs.build(user_id: current_user.id, action: "create")
 
     respond_to do |format|
       if @reference.save
+        @log = current_user.logs.create(loggable_type: "Reference", loggable_id: @reference.id, action: "create")
         format.html { redirect_to @reference.problem, notice: 'Reference was successfully created.' }
         format.json { render json: @reference, status: :created, location: @reference }
       else
@@ -61,10 +60,9 @@ class ReferencesController < ApplicationController
   def update
     @reference = Reference.find(params[:id])
 
-    @reference.logs.build(user_id: current_user.id, action: "update")
-
     respond_to do |format|
       if @reference.update_attributes(params[:reference])
+        @log = current_user.logs.create(loggable_type: "Reference", loggable_id: @reference.id, action: "update")
         format.html { redirect_to @reference, notice: 'Reference was successfully updated.' }
         format.json { head :no_content }
       else

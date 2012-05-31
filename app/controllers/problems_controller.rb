@@ -26,6 +26,7 @@ class ProblemsController < ApplicationController
   # GET /problems/new.json
   def new
     @problem = Problem.new
+    @problem.problem_tree ||= @problem.build_problem_tree
 
     respond_to do |format|
       format.html # new.html.erb
@@ -42,11 +43,10 @@ class ProblemsController < ApplicationController
   # POST /problems.json
   def create
     @problem = current_user.problems.build(params[:problem])
-
+    
     respond_to do |format|
       if @problem.save
-        @log = current_user.logs.build(loggable_type: "Problem", loggable_id: @problem.id, action: "create")
-        @log.save
+        @log = current_user.logs.create(loggable_type: "Problem", loggable_id: @problem.id, action: "create")
         format.html { redirect_to @problem, notice: 'Problem was successfully created.' }
         format.json { render json: @problem, status: :created, location: @problem }
       else
@@ -60,11 +60,10 @@ class ProblemsController < ApplicationController
   # PUT /problems/1.json
   def update
     @problem = Problem.find(params[:id])
-    @log = current_user.logs.build(loggable_type: "Problem", loggable_id: params[:id])
 
     respond_to do |format|
       if @problem.update_attributes(params[:problem])
-        @log.save
+        @log = current_user.logs.create(loggable_type: "Problem", loggable_id: @problem.id, action: "update")
         format.html { redirect_to @problem, notice: 'Problem was successfully updated.' }
         format.json { head :no_content }
       else

@@ -52,15 +52,16 @@ class DiscussionsController < ApplicationController
   # POST /discussions
   # POST /discussions.json
   def create
-    @discussion = Answer.find(params[:answer_id]).discussions
-    .build(params[:discussion].merge(user_id: current_user.id))
+    @discussion = current_user.discussions.build(params[:discussion])
+    @discussion.discussable_type = "Answer"
+    @discussion.discussable_id = params[:answer_id]
     
-    @discussion.logs.build(user_id: current_user.id, action: "create")
 
     respond_to do |format|
       if @discussion.save
-        format.html { redirect_to [@discussion.problem, @discussion.super_answer], notice: 'Discussion was successfully created.' }
-        format.json { render json: [@discussion.problem, @discussion.super_answer], status: :created, location: @discussion }
+        @log = current_user.logs.create(loggable_type: "Discussion", loggable_id: @discussion.id, action: "create")
+        format.html { redirect_to [@discussion.problem, @discussion.super_answer, @discussion.super_discussion], notice: 'Discussion was successfully created.' }
+        format.json { render json: [@discussion.problem, @discussion.super_answer, @discussion.super_discussion], status: :created, location: @discussion }
       else
         format.html { render action: "new" }
         format.json { render json: @discussion.errors, status: :unprocessable_entity }
@@ -71,13 +72,12 @@ class DiscussionsController < ApplicationController
   def create_reply
     @discussion = Discussion.find(params[:id]).discussions
     .build(params[:discussion].merge(user_id: current_user.id))
-    
-    @discussion.logs.build(user_id: current_user.id, action: "update")
 
     respond_to do |format|
       if @discussion.save
-        format.html { redirect_to [@discussion.problem, @discussion.super_answer, @discussion.discussable], notice: 'Discussion was successfully created.' }
-        format.json { render json: [@discussion.problem, @discussion.super_answerr, @discussion.discussble], status: :created, location: @discussion }
+        @log = current_user.logs.build(loggable_type: "Discussion", loggable_id: @discussion.id, action: "create")
+        format.html { redirect_to [@discussion.problem, @discussion.super_answer, @discussion.super_discussion], notice: 'Discussion was successfully created.' }
+        format.json { render json: [@discussion.problem, @discussion.super_answerr, @discussion.super_discussion], status: :created, location: @discussion }
       else
         format.html { render action: "new" }
         format.json { render json: @discussion.errors, status: :unprocessable_entity }
@@ -89,12 +89,11 @@ class DiscussionsController < ApplicationController
   # PUT /discussions/1.json
   def update
     @discussion = Discussion.find(params[:id])
-    
-    @discussion.logs.build(user_id: current_user.id, action: "update")
 
     respond_to do |format|
       if @discussion.update_attributes(params[:discussion])
-        format.html { redirect_to [@discussion.problem, @discussion.super_answer, @discussion], notice: 'Discussion was successfully updated.' }
+        @log = current_user.logs.build(loggable_type: "Discussion", loggable_id: @discussion.id, action: "update")
+        format.html { redirect_to [@discussion.problem, @discussion.super_answer, @discussion.super_discussion], notice: 'Discussion was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

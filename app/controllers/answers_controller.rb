@@ -42,11 +42,10 @@ class AnswersController < ApplicationController
   def create
     @answer = current_user.answers.build(params[:answer])
     @answer.problem_id = params[:problem_id]
-
+    
     respond_to do |format|
       if @answer.save
-        @log = current_user.logs.build(loggable_type: "Answer", loggable_id: @answer.id, action: "create")
-        @log.save
+      @log = current_user.logs.create(loggable_type: "Answer", loggable_id: @answer.id, action: "create")
         format.html { redirect_to @answer.problem, notice: 'Answer was successfully created.' }
         format.json { render json: @answer, status: :created, location: @answer }
       else
@@ -60,10 +59,9 @@ class AnswersController < ApplicationController
   # PUT /answers/1.json
   def update
     @answer = Answer.find(params[:id])
-    @answer.update_attributes(params[:answer])
-
+    
     respond_to do |format|
-      if 
+      if @answer.update_attributes(params[:answer])
         @log = current_user.logs.create(loggable_type: "Answer", loggable_id: @answer.id, action: "edit")
         format.html { redirect_to @answer.problem, notice: 'Answer was successfully updated.' }
         format.json { head :no_content }

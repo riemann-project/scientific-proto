@@ -37,7 +37,9 @@ class ImagesController < ApplicationController
   def update
     @image = Image.find(params[:id])
     img = Magick::ImageList.new("public" + @image.image.to_s)
-    img.crop!(params[:x].to_i, params[:y].to_i, params[:w].to_i, params[:h].to_i).write("public" + @image.image.to_s)
+    img.crop!(params[:x].to_i, params[:y].to_i, params[:w].to_i, params[:h].to_i)
+    img.rotate!(params[:degree].to_i) if params[:degree].to_i % 90 == 0
+    img.write("public" + @image.image.to_s)
     redirect_to user_images_path
   end
   
