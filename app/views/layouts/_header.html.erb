@@ -32,7 +32,7 @@
 		        <li><%= link_to "設定", edit_user_registration_path %></li>
 		        <li><%= link_to "ヘルプ", nil %></li>
 		        <li><%= link_to "Sign in", new_user_session_path if not user_signed_in? %></li>
-		        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete if user_signed_in? %></li>
+		        <li class="logout"><%= link_to "ログアウト", destroy_user_session_path, method: :delete if user_signed_in? %></li>
 					</ul>
 				</li>
 				<li class="divider-vertical"></li>
