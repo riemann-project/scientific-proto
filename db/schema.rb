@@ -69,7 +69,6 @@ ActiveRecord::Schema.define(:version => 20120530161649) do
   end
 
   create_table "problem_trees", :force => true do |t|
-    t.integer  "problem"
     t.string   "university"
     t.string   "department"
     t.string   "course"
@@ -82,10 +81,11 @@ ActiveRecord::Schema.define(:version => 20120530161649) do
 
   create_table "problems", :force => true do |t|
     t.text     "content"
+    t.integer  "problem_tree_id"
     t.integer  "user_id"
     t.integer  "view"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "references", :force => true do |t|

@@ -4,11 +4,11 @@ class FollowsController < ApplicationController
   
   def create
     @follow = current_user.follows.build(followed_id: params[:user_id])
-
-    @follow.logs.build(user_id: current_user.id, action: "create")
+    @log = current_user.logs.build(loggable_type: "Follow", loggable_id: @follow.id)
     
     respond_to do |format|
       if @follow.save
+        @log.save
         format.html { redirect_to :back }
         format.json { render json: @follow, status: :created, location: @follow }
       else

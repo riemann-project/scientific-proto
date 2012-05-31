@@ -1,19 +1,12 @@
 <!DOCTYPE HTML>
 <html lang="en-US">
 <head>
+	<meta name = "viewport" content = "width = device-width">
 	<meta charset="UTF-8">
 	<title>Pipet / Sign in(Mobile)</title>
 	<%= stylesheet_link_tag    "application", :media => "all" %>
 	<%= javascript_include_tag "application" %>
 </head>
-
-<% if current_user %>
-	<script type="text/javascript" charset="utf-8">
-		var user_id = "<%= current_user.id %>";
-		var auth_token = "<%= current_user.authentication_token %>";
-	</script>
-<% end %>
-
 <body class="<%= controller.controller_name %>-<%= controller.action_name %>">
 	<div class="container">
 		<h2>Pipet ログインページ</h2>

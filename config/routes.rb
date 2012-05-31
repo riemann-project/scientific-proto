@@ -12,11 +12,14 @@ ScientificProto::Application.routes.draw do
     post "users/mobile_sign_in", to: "users/sessions#mobile_create", as: "mobile_create_session"
   end
 
-  resources :users, :except => [:new, :delete] do
+  resources :users, :except => [:new, :edit, :delete] do
+    get "profile_edit" => "users#edit", :on => :collection
     resources :watches, :only => [:index]
     resources :follows, :only => [:index, :create, :destroy]
     resources :images
   end
+  
+  resources :problem_trees, :only => [:index, :create]
 
   resources :problems do
     match "tag/:tag_name" => "problems#tag", :as => "tag", :on => :collection

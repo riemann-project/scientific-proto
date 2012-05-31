@@ -1,8 +1,7 @@
 <h2>this is User::Images</h2>
 
 <% @images.each do |i| %>
-	<%= image_tag i.image_url.to_s %>
-	<%= link_to "edit", edit_user_image_path(current_user, i) %>
+	<%= link_to (image_tag i.image_url.to_s, size: '200x90'), edit_user_image_path(current_user, i) %>
 	<hr>
 <% end %>
 

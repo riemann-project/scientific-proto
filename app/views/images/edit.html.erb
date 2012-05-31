@@ -1,7 +1,7 @@
 <h1>ProblemImages#edit</h1>
 <p>Find me in app/views/problem_images/edit.html.erb</p>
 
-<%= image_tag @image.image, id: "active_image" %><br>
+<%= image_tag @image.image, id: "active_image", size: "500x400" %><br>
 <%= link_to "delete", user_image_path(@image.user, @image), method: :delete %>
 
 <%= form_tag("./", :method => "PUT") do %><br>

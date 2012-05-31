@@ -5,5 +5,4 @@ class Log < ActiveRecord::Base
   validates_associated :user
 
   belongs_to :loggable, polymorphic: true
-  validates_associated :loggable
 end

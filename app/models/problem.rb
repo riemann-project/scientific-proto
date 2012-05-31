@@ -3,6 +3,9 @@ class Problem < ActiveRecord::Base
 
   belongs_to :user
   validates_associated :user
+  
+  belongs_to :problem_tree
+  validates_associated :problem_tree
 
   has_many :watches
   has_many :watching_users, through: :watches
