@@ -1,25 +1,41 @@
-<h1>Flow ボード</h1>
-<p>Find me in app/views/logs/index.html.erb</p>
+<div clss="container content" style="margin-top:30px;">
+<!-- left sidebar -->	
+	<div class="row">
+		<div class="span2" id="left_sidebar">
+			<p class="notification"><a href="">通知</a></p><br>
+			<p class="newsfeed"><a href="">ニュースフィード</a></p><br><br>
 
-<div class="span2">
-	<h3>Notifications</h3>
-	<h3>News Feeds</h3>
-	<h3>Boards</h3>
-	<ul>
-		<li><%= link_to "Create", nil %>
-		<li><%= link_to "Creates", nil %>
-		<li><%= link_to "Watches", nil %>
-		<li><%= link_to "Votes", nil %>
-		<li><%= link_to "Donates", nil %>
-		<li><%= link_to "Tags", nil %>
-	</ul>
-	<h3>User</h3>
-	<ul>
-		<li><%= link_to "Follows", nil %>
-		<li><%= link_to "Classmates", nil %>
-	</ul>
+			<span class="board">Board</span><br>
+				<ul>
+					<li><%= link_to "Create", nil , class: "create" %></li>
+					<li><%= link_to "Watches", nil , class: "watches" %></li>
+					<li><%= link_to "Votes", nil , class: "votes" %></li>
+					<li><%= link_to "Donates", nil , class: "donates" %></li>
+					<li><%= link_to "Index", nil , class: "index" %></li>
+					<li><%= link_to "Tags", nil , class: "tags" %></li>
+				</ul><br>
+
+			<span class="user">User</span><br>
+				<ul>
+					<li><%= link_to "Follows", nil , class: "follows" %></li>
+					<li><%= link_to "Classmates", nil , class: "classmates" %></li>
+				</ul>	
+		</div>
+<!-- /left sidebar -->
+<!-- main -->
+	<div class="span7" id="main">
+		<span style="font-size:17px">main</span>
+		<%= render @logs %>
+	</div>
+<!-- main -->
+<!-- right sidebar -->
+ 	<div class="span3">
+ 		<div class="ad">
+ 			<a>広告</a>
+ 		</div>
+ 	</div>
+<!-- /right sidebar -->
+	</div>
 </div>
 
-<div class="span7">
-	<%= render @logs %>
-</div>
+

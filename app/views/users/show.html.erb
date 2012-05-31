@@ -1,3 +1,75 @@
+<div class="contentainer content">
+		<div class="row">
+			<div class="span12" style="margin-top:30px;">
+            	<h2>ユーザーページ</h2>
+            	<div class="user_img span2"><a href="">image</a></div>
+
+            	<div class="user_data span4">
+            		j7310059/EE2<br>
+            		saiwaki/サイワキヒトシ
+            		<br>
+            		<br>
+            		<span class="hyouka">評価：<a href="" class="num">３４５</a></span>
+            		<span class="hensathi" style="margin-left:10px;">偏差値：<a href="" class="num">５９</a></span>
+
+            		<div class="bg" style="margin-top:5px;">
+            			バッジ：<span class="gold"><%= image_tag "gold.png" %>
+            				   <a href="" class="num">1</a></span>
+            				   <span class="silver"><%= image_tag "silver.png" %>
+            				   <a href="" class="num">8</a></span>
+            				   <span class="bronze"><%= image_tag "bronze.png" %>
+            				   <a href="" class="num">9</a></span>
+
+            		</div>
+
+            		<div class="coin" style="margin-top:5px;">
+            			コイン：<span class="num" style="margin-left:10px;">２３６７c</span>
+            		</div><br>
+
+            		<div class="follow-follower" style="margin-top:5px;">
+						フォロー：<a href="" class="num" style="margin-left:10px;">３０</a>
+						<span style="margin-left:10px;">フォロワー：
+						<a  href="" class="num" style="margin-left:10px;">２５</a></span>
+                    </div>
+            	</div>
+
+            	<div class="profile span5">
+					プロフィール<br><br>
+					名前：<br>
+					学校：<br>
+					学科：<br>
+					<%= link_to "Edit user's profile", edit_user_path(current_user), class: "edit_profile" %>
+            	</div>	
+			</div>
+
+			<div class="tabbable span12" style="margin-top:30px;">
+     			<ul class="nav nav-tabs">
+         
+        			<li class="active"><a href="#outline" data-toggle="tab" class="outline">概要</a></li>
+        			<li><a href="#que" data-toggle="tab" class="que">問題</a></li>
+        			<li><a href="#ref" data-toggle="tab" class="ref">参考</a></li>
+        			<li><a href="#dis" data-toggle="tab" class="dis">議論</a></li>
+        			<li><a href="#eva" data-toggle="tab" class="eva">評価／偏差値</a></li>
+        			<li><a href="#bad" data-toggle="tab" class="bad">バッジ</a></li>
+        			<li><a href="#coi" data-toggle="tab" class="coi">コイン</a></li>
+        			<li><a href="#fol" data-toggle="tab" class="fol">フォロー</a></li>
+     			</ul> 
+     			<div class="tab-content">
+          
+          			<div id="outline" class="tab-pane active"><img src="img/user_show.png"></div>
+          			<div id="que" class="tab-pane">ここは問題です。</div>
+          			<div id="ref" class="tab-pane">ここは参考です。</div>
+         			<div id="dis" class="tab-pane">ここは議論です。</div>
+          			<div id="eva" class="tab-pane">ここは評価／偏差値です。</div>
+          			<div id="bad" class="tab-pane">ここはバッジです。</div>
+          			<div id="coi" class="tab-pane">ここはコインです。</div>
+          			<div id="fol" class="tab-pane">ここはフォローです。</div>
+            	</div>
+			</div>	
+
+		</div>
+</div>
+
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
 
@@ -26,4 +98,3 @@
   <%= link_to u.email, u %>
 <% end %>
 
-<%= link_to "Edit user's profile", edit_user_path(current_user) %>
