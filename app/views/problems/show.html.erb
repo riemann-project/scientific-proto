@@ -20,7 +20,19 @@
 				<%= image_tag "q_40.png", class: "q_40" %><%= raw Sanitize.clean(@problem.content, Sanitize::Config::RELAXED) %>
 			</div>
 
-			<div class="reference">Reference</div>
+			<div class="reference span8">
+				<div class="row">
+					<div class="accordion span6" id="accordion1">
+						<div class="accordion-group">
+							<div class="according-heading">
+								<a href="#collapseOne" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1">
+									<%= image_tag "r.png", class: "r" %>参考(4)
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
