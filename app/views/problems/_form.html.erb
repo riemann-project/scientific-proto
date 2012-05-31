@@ -1,5 +1,5 @@
 <%= form_for(@problem) do |f| %>
-  <script type="text/javascript">bkLib.onDomLoaded(function(){new nicEditor().panelInstance('problem_content');});</script>
+  <script type="text/javascript">bkLib.onDomLoaded(function(){new nicEditor({fullPanel : true}).panelInstance('problem_content');});</script>
   <% if @problem.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@problem.errors.count, "error") %> prohibited this problem from being saved:</h2>
@@ -13,12 +13,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :tags %><br />
-    <%= f.text_field :tag_list %>
-  </div>
-  <div class="field">
     <%= f.label :content %><br />
     <%= f.text_area :content %>
+  </div>
+  <div class="field">
+    <%= f.label :tags %><br />
+    <%= f.text_field :tag_list %>
   </div>
   <div class="actions">
     <%= f.submit %>
