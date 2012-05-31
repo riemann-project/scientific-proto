@@ -7,6 +7,10 @@
   <br>
   <br>
 
+  <%= link_to "edit answer", edit_problem_answer_path(answer.problem, answer) %>
+
+  <hr>
+
   <h3>Discussions</h3>
   discussions: <%= answer.discussions.count %><br>
 	<ul>
