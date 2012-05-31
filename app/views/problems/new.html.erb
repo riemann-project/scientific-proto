@@ -3,11 +3,24 @@
 		<div class="span9" style="margin-top:30px; background-color:#eee;">
 			<div class="create-disboard" style="padding:10px;">
 				<h2><%= image_tag "q_40.png", class: "q_40" %><span>問題を作成</span></h2>
-			</div><hr><br/>
+			</div><hr style="border-color:#ddd;"><br/>
+            
+            <div class="index_box" style="margin-bottom:20px; margin-left:3px;"> 
+			<span class="index" style="font-weight:500; font-size:15px;">インデックス：</span><input class="" type="text"  data-provide="typeahead" style="margin:0 auto; width:500px;"><br>
+            </div>
+
 			<%= render 'form' %>
 		</div>
-	</div>
-</div>
 
+		<!-- sidebar -->
+ 		<div class="span3">
+ 			<div class="ad">
+ 				<a>広告</a>
+ 			</div>
+ 		</div>
+ 		<!-- /sidebar -->	
+	</div>
 
 <%= link_to 'Back', problems_path %>
+</div>
+

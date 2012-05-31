@@ -1,4 +1,89 @@
-<h1>Digボード</h1>
+<div class="container content" style="margin-top:30px;">
+	<div class="row">
+		<div class="span9">
+			<h3>Qサーチボード</h3>
+
+			<div class="tabbable">
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="#ward" data-toggle="tab" class="word">word</a></li>
+         			<li><a href="#index" data-toggle="tab" class="index">index</a></li>
+        			<li><a href="#tag" data-toggle="tab" class="tag">tag</a></li>
+         			<li><a href="#sq" data-toggle="tab" class="sq">特別question</a></li>
+				</ul>
+
+				<div class="tab-content">
+					<div id="ward" class="tab-pane active">
+						<div class="searchbar-box">
+							<div class="searchbar">
+								<input id="srchtxt" type="text" autocomplete="off" placeholder="例）基礎エネルギー工学">
+								<input id="srchbtn" class="srchbtn" type="submit" value="検索">
+							</div>
+							<div class="row">
+               					<div class="accordion span9" id="accordion2">
+                   				 	<div class="accordion-group">
+                         				<div class="accordion-heading">
+                              				<a href="#collapseOne" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" >
+                              				<span class="btn">フィルタ ▼</span>
+                              
+                              				</a>
+                                   		</div>
+           								<div class="accordion-body collapse" id="collapseOne">
+               								<div class="accordion-inner">
+                   								<table> <tr><td>
+                   									<label class="checkbox">
+														<input id="optionsCheckbox" class="aa-ua" type="checkbox" value="1" style="  padding: 4px; border: 1px solid rgb(204, 204, 204); font-size: 13px;">
+														既解答＆未解答
+													</label></td>
+    												<td>
+    												<label class="checkbox" id="aa">
+														<input id="optionsCheckbox" class="aa" type="checkbox" value="2" style="background-color: rgb(255, 255, 255); color: rgb(85, 85, 85); padding: 4px; border: 1px solid rgb(204, 204, 204); font-size: 13px;">
+														既解答
+													</label>
+													<td>
+													<label class="checkbox" id="ua">
+														<input id="optionsCheckbox" class="ua" type="checkbox" value="option1" style="background-color: rgb(255, 255, 255); color: rgb(85, 85, 85); padding: 4px; border: 1px solid rgb(204, 204, 204); font-size: 13px;">
+														未解答
+													</label></td></tr>
+												</table>
+												<table> <tr>
+													<td>
+													<label class="checkbox" id="new">
+														<input id="optionsCheckbox" class="new" type="checkbox" value="option1" style="background-color: rgb(255, 255, 255); color: rgb(85, 85, 85); padding: 4px; border: 1px solid rgb(204, 204, 204); font-size: 13px;">
+														新しい順
+													</label></td>
+													<td>
+													<label class="checkbox" id="old">
+														<input id="optionsCheckbox" class="old" type="checkbox" value="option1" style="background-color: rgb(255, 255, 255); color: rgb(85, 85, 85); padding: 4px; border: 1px solid rgb(204, 204, 204); font-size: 13px;">
+														古い順
+													</label></td>
+													<td>
+													<label class="checkbox" id="week">
+														<input id="optionsCheckbox" class="week" type="checkbox" value="option1" style="background-color: rgb(255, 255, 255); color: rgb(85, 85, 85); padding: 4px; border: 1px solid rgb(204, 204, 204); font-size: 13px;">
+														1週間前から
+													</label></td>
+													<td>
+													<label class="checkbox" id="month">
+														<input id="optionsCheckbox" class="month" type="checkbox" value="option1" style="background-color: rgb(255, 255, 255); color: rgb(85, 85, 85); padding: 4px; border: 1px solid rgb(204, 204, 204); font-size: 13px;">
+														1ヶ月前から
+													</label></td>
+												</tr></table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>					
+					<div id="index" class="tab-pane">index</div>
+					<div id="tag" class="tab-pane">tag</div>
+					<div id="sq" class="tab-pane">sq</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>
 
 <div class="span9">
 	<%= render @problems %>
