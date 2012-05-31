@@ -4,7 +4,7 @@
 			<div class="qindex-board">
 				<div class="qindex">
 					<p id="notice"><%= notice %></p>
-					<h2>EE2>基礎エネルギー工学>H.20>前期定期>問１</h2>
+					<h2>???>???>H.??>????>???</h2>
 					<%= link_to_watch @problem %>
 
 					<%= link_to 'Edit', edit_problem_path(@problem) %><hr>
@@ -26,29 +26,35 @@
 						<div class="accordion-group">
 							<div class="according-heading">
 								<a href="#collapseOne" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1">
-									<%= image_tag "r.png", class: "r" %>参考(4)
+									<%= image_tag "r.png", class: "r" %>参考(2)
 								</a>
+							</div>
+							<div class="according-body collapse" id="collapseOne">
+								<div class="accordion-inner">
+									<a href="">test1</a>
+								</div>
+								<div class="accordion-inner">
+									<a href="">test2</a>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+
+					<div class="span2">
+						<%= render @problem.references %>
+						<%= link_to "+ Reference ", new_problem_reference_path(@problem), class: "btn btn-warning" %>
+					</div>
+				</div><hr>
+			</div>
+
+			<div class="answer">
+				<%= render @problem.answers %>
+			</div>
+
+			<div class="new-answer">
+				<%= render partial: "answers/form", object: @answer %>
 			</div>
 		</div>
 	</div>
 </div>
 
-
-
-
-<ul>
-	<%= render @problem.references %>
-</ul>
-<%= link_to "+ Reference ", new_problem_reference_path(@problem), class: "btn btn-warning" %><br>
-<hr>
-
-<%= render @problem.answers %>
-
-<hr>
-
-<h3>New Answer</h3>
-<%= render partial: "answers/form", object: @answer %>
