@@ -11,7 +11,7 @@ class Reference < ActiveRecord::Base
   validates_associated :usefuls
   has_many :usefuled_user, class_name: "User", through: :usefuls
   validates_associated :usefuled_user
-  
+
   has_many :logs, as: :loggable
   validates_associated :logs
 end

@@ -3,7 +3,7 @@ class Problem < ActiveRecord::Base
 
   belongs_to :user
   validates_associated :user
-  
+
   belongs_to :problem_tree
   validates_associated :problem_tree
 
@@ -20,7 +20,7 @@ class Problem < ActiveRecord::Base
 
   has_many :logs, as: :loggable
   validates_associated :logs
-  
+
   validates :content, presence: true
 
   acts_as_taggable

@@ -1,6 +1,6 @@
 class Image < ActiveRecord::Base
   attr_accessible :image
-  
+
   belongs_to :user
   validates_associated :user
 

@@ -3,7 +3,7 @@
 	<h3>Answers</h3>
 
 	title: <%= answer.title %><br>
-  content: <%= raw Sanitize.clean(answer.content, Sanitize::Config::RELAXED) %><br>
+  content: <%= sanitize_it answer.content %><br>
   <br>
   <br>
 

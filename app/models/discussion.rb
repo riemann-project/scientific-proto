@@ -16,11 +16,11 @@ class Discussion < ActiveRecord::Base
 
   has_many :logs, as: :loggable
   validates_associated :logs
-  
+
   def super_answer
     discussable_type == "Answer" ? discussable : discussable.super_answer
   end
-  
+
   def problem
     super_answer.problem
   end
