@@ -6,13 +6,13 @@
 					<p id="notice"><%= notice %></p>
 					<h2>???>???>H.??>????>???
 					<%= link_to_watch @problem %>
-					</h2><br>
-					<%= link_to 'Edit', edit_problem_path(@problem) %>
+					</h2>
+					<%= link_to '編集する', edit_problem_path(@problem) %>
 					<hr>
 				</div>
 				タグ：<% tag_cloud(@problem.tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
 				<%= link_to tag.name, tag_problems_path(tag.name) , :class => css_class %>
-				<% end %><br>
+				<% end %>
 				<span class="at-by">
 				作成日： <%= @problem.created_at %>
 				作成者： <%= @problem.user.name %>
@@ -22,7 +22,7 @@
 
 			<div class="question">
 				<%= image_tag "q_40.png", class: "q_40 span1" %><%= raw Sanitize.clean(@problem.content, Sanitize::Config::RELAXED) %>
-			</div>
+			</div><br>
 
 			<div class="reference span8">
 				<div class="row">
@@ -46,7 +46,7 @@
 
 					<div class="span2">
 						<%= render @problem.references %>
-						<%= link_to "+ Reference ", new_problem_reference_path(@problem), class: "btn btn-warning" %>
+						<%= link_to "+ 参考を作る ", new_problem_reference_path(@problem), class: "btn btn-warning" %>
 					</div>
 				</div><hr>
 			</div>

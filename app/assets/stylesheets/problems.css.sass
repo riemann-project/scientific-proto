@@ -11,7 +11,57 @@
 		border: 0
 
 	a:focus
-		outline: none	
+		outline: none
+
+	ul.nav-tabs li
+		float: right
+
+		a
+			border-radius: 0 0 0 0
+
+		a:hover
+			background-color: #fff
+			border-color: #fff #fff #ddd
+
+	.searchbar-box
+		background-color: #eee
+		padding-top: 30px		
+
+	.searchbar
+	
+		#srchtxt
+			width: 350px
+			height: 22px
+			border-radius: 0 0 0 0
+
+		#srchbtn
+			width: 90px
+			height: 32px
+			border-radius: 0 0 0 0
+			color: #eee
+			font-weight: 500
+			background-color: #555
+			margin-left: -3px
+
+		#srchbtn:hover
+			background-color: #777
+
+	.accordion-toggle
+
+		.btn
+			margin-left: 143px
+			line-height: 15px
+			color: #444
+
+	.accordion-group
+		border: none		
+
+		.accordion-inner
+			border: none
+			padding: 10px 115px
+
+			label.checkbox
+				margin-left: 10px										
 
 .problems-new
 	color: #333
@@ -80,6 +130,9 @@
 .problems-show
 	color: #333
 
+	a:focus
+		outline: none
+
 	.qindex
 
 		a
@@ -89,9 +142,40 @@
 		float: right	
 
 	.question
+		line-height: 1.8
+		font-size: 15px
 	
 		.q_40
 			width: 40px
 			height: 40px
 			margin-left: 0px
-			margin-right: 5px		
+			margin-right: 5px
+
+	.reference
+	
+		.accordion-toggle
+			display: block
+			padding: 8px 15px
+
+		.btn-warning
+			background-color: #bbb346
+			*background-color: #bbb346
+			background-image: -ms-linear-gradient(top, #D0CA70, #BBB346)
+			background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#D0CA70), to(#BBB346))
+			background-image: -webkit-linear-gradient(top, #D0CA70, #BBB346)
+			background-image: -o-linear-gradient(top, #D0CA70, #BBB346)
+			background-image: -moz-linear-gradient(top, #D0CA70, #BBB346)
+			background-image: linear-gradient(top, #D0CA70, #BBB346)
+			background-repeat: repeat-x
+			border-color: #f89406 #f89406 #ad6704
+			border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25)
+			filter: progid:dximagetransform.microsoft.gradient(startColorstr='#D0CA70', endColorstr='#BBB346', GradientType=0)
+			filter: progid:dximagetransform.microsoft.gradient(enabled=false)
+
+		.btn-warning:hover,
+		.btn-warning:active,
+		.btn-warning.active,
+		.btn-warning.disabled,
+		.btn-warning[disabled]
+			background-color: #BBB346
+			*background-color: #BBB346
