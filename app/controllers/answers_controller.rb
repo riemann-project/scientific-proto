@@ -40,8 +40,7 @@ class AnswersController < ApplicationController
   # POST /answers
   # POST /answers.json
   def create
-    @answer = current_user.answers.build(params[:answer])
-    @answer.problem_id = params[:problem_id]
+    @answer = current_user.answers.build(params[:answer].merge(:problem_id => params[:problem_id]))
 
     respond_to do |format|
       if @answer.save
