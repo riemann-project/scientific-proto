@@ -4,20 +4,24 @@
 			<div class="qindex-board">
 				<div class="qindex">
 					<p id="notice"><%= notice %></p>
-					<h2>???>???>H.??>????>???</h2>
+					<h2>???>???>H.??>????>???
 					<%= link_to_watch @problem %>
-
-					<%= link_to 'Edit', edit_problem_path(@problem) %><hr>
+					</h2><br>
+					<%= link_to 'Edit', edit_problem_path(@problem) %>
+					<hr>
 				</div>
-				<% tag_cloud(@problem.tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+				タグ：<% tag_cloud(@problem.tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
 				<%= link_to tag.name, tag_problems_path(tag.name) , :class => css_class %>
 				<% end %><br>
-				Created at <%= @problem.created_at %><br>
-				Created by <%= @problem.user.name %><br>
+				<span class="at-by">
+				作成日： <%= @problem.created_at %>
+				作成者： <%= @problem.user.name %>
+				</span>
+				<br><br>
 			</div>
 
 			<div class="question">
-				<%= image_tag "q_40.png", class: "q_40" %><%= raw Sanitize.clean(@problem.content, Sanitize::Config::RELAXED) %>
+				<%= image_tag "q_40.png", class: "q_40 span1" %><%= raw Sanitize.clean(@problem.content, Sanitize::Config::RELAXED) %>
 			</div>
 
 			<div class="reference span8">
